@@ -1,0 +1,28 @@
+{
+    "movies": [
+        { "id": 1, "title": "Mr. Nobody", "img": "https://assets.nflxext.com/us/boxshots/hd1080/70117580.jpg" , "rating":"7.8" },
+        { "id": 2, "title": "Arrival", "img": "https://timm.ticaret.edu.tr/yonetim/uploads/image/68862.jpg" , "rating":"7.9" },
+        { "id": 3, "title": "Source Code", "img": "https://sinemasayfam.com/wp-content/uploads/2020/07/Yaşam-şifresi-2011-Source-Code-22.jpg" , "rating":"7.5" },
+        { "id": 4, "title": "Identity", "img": "https://images.moviesanywhere.com/d1e1f3cc7a43bdbd871ed9f352b4819f/f4c1c3a4-2d7f-4381-b19e-bf638fd9b9bc.jpg" , "rating":"7.3" },
+        { "id": 5, "title": "Tenet", "img": "https://m.media-amazon.com/images/I/91NatHcUX6L._AC_UF1000,1000_QL80_.jpg" , "rating":"7.3" },
+        { "id": 6, "title": "The Godfather", "img": "https://musicart.xboxlive.com/7/77295200-0000-0000-0000-000000000002/504/image.jpg?w=1920&h=1080" , "rating":"9.2" },
+        { "id": 7, "title": "The Dark Knight", "img": "https://m.media-amazon.com/images/I/91ebheNmoUL._RI_.jpg" , "rating":"9.0" },
+        { "id": 8, "title": "Fight Club", "img": "https://m.media-amazon.com/images/M/MV5BMmEzNTkxYjQtZTc0MC00YTVjLTg5ZTEtZWMwOWVlYzY0NWIwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg" , "rating":"8.8" }
+    ],
+    "series": [
+        { "id": 1, "title": "Breaking Bad", "img": "https://br.web.img3.acsta.net/pictures/14/03/31/19/28/462555.jpg" , "rating":"9.5" },
+        { "id": 2, "title": "Kurtlar Vadisi", "img": "https://upload.wikimedia.org/wikipedia/tr/1/1f/Kurtlar-vadisi-eski.jpg" , "rating":"7.9" },
+        { "id": 3, "title": "Vikings", "img": "https://tr.web.img3.acsta.net/pictures/19/10/09/14/38/1936798.jpg" , "rating":"8.5" },
+        { "id": 4, "title": "How I Met Your Mother", "img": "https://flxt.tmsimg.com/assets/p185124_b_v9_aj.jpg" , "rating":"8.3" },
+        { "id": 5, "title": "Narcos", "img": "https://m.media-amazon.com/images/I/71bmgBo-EQL._AC_UF894,1000_QL80_.jpg" , "rating":"8.8" },
+        { "id": 6, "title": "Peaky Blinders", "img": "https://www.formulatv.com/images/series/posters/1000/1079/dest_1.jpg" , "rating":"8.8" },
+        { "id": 7, "title": "The 100", "img": "https://resizing.flixster.com/LHH5SvybzNWHdHxRfyh-ZMDQIFE=/ems.cHJkLWVtcy1hc3NldHMvdHZzZWFzb24vUlRUVjEyODEwMS53ZWJw" , "rating":"7.6" },
+        { "id": 8, "title": "Modern Family", "img": "https://images.justwatch.com/poster/8589534/s718/sezon-2.%7Bformat%7D" , "rating":"8.5" }
+    ],
+    "musics": [
+        { "id": 1, "title": "Eminem", "img": "https://www.indyturk.com/sites/default/files/styles/1368x911/public/article/main_image/2020/07/11/417711-2057761605.jpg?itok=DcpzUHjZ" },
+        { "id": 2, "title": "Dua Lipa", "img": "https://m.media-amazon.com/images/I/91y9tf-cOoL._UF1000,1000_QL80_.jpg" },
+        { "id": 3, "title": "MFÖ", "img": "https://i.scdn.co/image/ab67616d0000b273e03e8e29bbd7c75677935d56" },
+        { "id": 4, "title": "Shakira", "img": "https://m.media-amazon.com/images/I/4177kb6l0GL._AC_UF1000,1000_QL80_.jpg" }
+    ]   
+}

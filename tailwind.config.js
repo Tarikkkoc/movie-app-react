@@ -1,0 +1,19 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.{html,js}"],
+  theme: {
+    screens: {
+      mobile: { max: "767px" },
+      // => @media (max-width: 767px) { ... }
+      tablet: { max: "919px", min: "768px" },
+      // => @media (max-width: 991px) { ... }
+      desktop: { max: "1231px", min: "920px" },
+      // => @media (max-width: 1231px) { ... }
+    },
+    extend: {},
+    fontFamily: {
+      barlow: ["Barlow", "sans-serif"],
+    },
+  },
+  plugins: [],
+};
