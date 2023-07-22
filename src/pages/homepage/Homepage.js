@@ -1,12 +1,64 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import alertify from "alertifyjs";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
+import Typography from "@mui/material/Typography";
+import { css, styled } from "@emotion/css";
 
 const Homepage = () => {
   const [movie, setMovie] = useState([]);
   const [serie, setSerie] = useState([]);
   const [music, setMusic] = useState([]);
   const [clickedItemIds, setClickedItemIds] = useState([]);
+
+  const [openMusic, setOpenMusic] = useState(false);
+  const [selectedMusicImg, setSelectedMusicImg] = useState(null);
+  const [selectedMusicTitle, setSelectedMusicTitle] = useState(null);
+  const handleOpenMusic = (img, title) => {
+    setSelectedMusicImg(img);
+    setSelectedMusicTitle(title);
+    setOpenMusic(true);
+  };
+  const handleCloseMusic = () => {
+    setOpenMusic(false);
+  };
+
+  const [openMovie, setOpenMovie] = useState(false);
+  const [selectedMovieImg, setSelectedMovieImg] = useState(null);
+  const [selectedMovieTitle, setSelectedMovieTitle] = useState(null);
+  const handleOpenMovie = (img, title) => {
+    setSelectedMovieImg(img);
+    setSelectedMovieTitle(title);
+    setOpenMovie(true);
+  };
+  const handleCloseMovie = () => {
+    setOpenMovie(false);
+  };
+
+  const [openSerie, setOpenSerie] = useState(false);
+  const [selectedSerieImg, setSelectedSerieImg] = useState(null);
+  const [selectedSerieTitle, setSelectedSerieTitle] = useState(null);
+  const handleOpenSerie = (img, title) => {
+    setSelectedSerieImg(img);
+    setSelectedSerieTitle(title);
+    setOpenSerie(true);
+  };
+  const handleCloseSerie = () => {
+    setOpenSerie(false);
+  };
+
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 400,
+    bgcolor: "background.paper",
+    border: "2px solid #000",
+    boxShadow: 24,
+    p: 4,
+  };
 
   const handleClick = (itemTitle) => {
     alertify.notify("Success notification message.");
@@ -36,7 +88,7 @@ const Homepage = () => {
         setMusic(musics);
       })
       .catch((error) => console.log(error));
-    alertify.set("notifier", "position", "bottom-right");
+    // alertify.set("notifier", "position", "bottom-right");
   }, []);
 
   return (
@@ -45,9 +97,33 @@ const Homepage = () => {
         Filmler
       </h2>
       <div className="grid grid-cols-3 gap-x-32 gap-y-10 place-items-center place-content-center mt-10 tablet:grid tablet:grid-cols-2 tablet:gap-y-5 tablet:gap-x-0 mobile:grid mobile:grid-cols-1 mobile:gap-y-5 mobile:gap-x-0">
+        <Modal
+          keepMounted
+          open={openMovie}
+          onClose={handleCloseMovie}
+          aria-labelledby="keep-mounted-modal-title"
+          aria-describedby="keep-mounted-modal-description"
+        >
+          <Box sx={style}>
+            {selectedMovieImg && (
+              <div className="flex gap-5">
+                <img className="w-1/2" src={selectedMovieImg} />
+                <div className="flex flex-col gap-2">
+                  <div className="text-black text-2xl font-semibold font-barlow">
+                    {selectedMovieTitle}
+                  </div>
+                  <div>
+                    <p>Filmin konusu eklenince burada yer alacak.</p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </Box>
+        </Modal>
         {movie.map((item) => (
           <div className="w-60 relative shadow-2xl" key={item.id}>
             <img
+              onClick={() => handleOpenMovie(item.img, item.title)}
               className="w-full h-72 rounded-xl hover:-translate-y-0.5 hover:scale-105 transition ease-in-out delay-150 duration-500 cursor-pointer"
               src={item.img}
               alt=""
@@ -89,9 +165,33 @@ const Homepage = () => {
         Diziler
       </h2>
       <div className="grid grid-cols-3 gap-x-32 gap-y-10 place-items-center place-content-between mt-10 tablet:grid tablet:grid-cols-2 tablet:gap-y-5 tablet:gap-x-0 mobile:grid mobile:grid-cols-1 mobile:gap-y-5 mobile:gap-x-0">
+        <Modal
+          keepMounted
+          open={openSerie}
+          onClose={handleCloseSerie}
+          aria-labelledby="keep-mounted-modal-title"
+          aria-describedby="keep-mounted-modal-description"
+        >
+          <Box sx={style}>
+            {selectedSerieImg && (
+              <div className="flex gap-5">
+                <img className="w-1/2" src={selectedSerieImg} />
+                <div className="flex flex-col gap-2">
+                  <div className="text-black text-2xl font-semibold font-barlow">
+                    {selectedSerieTitle}
+                  </div>
+                  <div>
+                    <p>Dizinin konusu eklenince burada yer alacak.</p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </Box>
+        </Modal>
         {serie.map((item) => (
           <div className="w-60 relative shadow-2xl" key={item.id}>
             <img
+              onClick={() => handleOpenMovie(item.img, item.title)}
               className="w-full h-72 rounded-xl hover:-translate-y-0.5 hover:scale-105 transition ease-in-out delay-150 duration-500 cursor-pointer"
               src={item.img}
               alt=""
@@ -134,9 +234,33 @@ const Homepage = () => {
         Sanatçılar
       </h2>
       <div className="grid grid-cols-3 gap-x-32 gap-y-10 place-items-center place-content-between mt-10 tablet:grid tablet:grid-cols-2 tablet:gap-y-5 tablet:gap-x-0 mobile:grid mobile:grid-cols-1 mobile:gap-y-5 mobile:gap-x-0">
+        <Modal
+          keepMounted
+          open={openMusic}
+          onClose={handleCloseMusic}
+          aria-labelledby="keep-mounted-modal-title"
+          aria-describedby="keep-mounted-modal-description"
+        >
+          <Box sx={style}>
+            {selectedMusicImg && (
+              <div className="flex gap-5">
+                <img className="w-1/2" src={selectedMusicImg} />
+                <div className="flex flex-col gap-2">
+                  <div className="text-black text-2xl font-semibold font-barlow">
+                    {selectedMusicTitle}
+                  </div>
+                  <div>
+                    <p>Şarkının konusu eklenince burada yer alacak.</p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </Box>
+        </Modal>
         {music.map((item) => (
           <div className="w-60 relative shadow-2xl" key={item.id}>
             <img
+              onClick={() => handleOpenMusic(item.img, item.title)}
               className="w-full h-72 rounded-xl hover:-translate-y-0.5 hover:scale-105 transition ease-in-out delay-150 duration-500 cursor-pointer"
               src={item.img}
               alt=""
