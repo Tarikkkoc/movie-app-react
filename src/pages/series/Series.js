@@ -23,7 +23,7 @@ const Series = () => {
   const [serie, setSerie] = useState([]);
   const [clicked, setClicked] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/series")
+    fetch("http://localhost:5000/series")
       .then((res) => res.json())
       .then((series) => {
         setSerie(series);

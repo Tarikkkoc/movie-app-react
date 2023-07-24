@@ -23,7 +23,7 @@ const Musics = () => {
   const [music, setMusic] = useState([]);
   const [clicked, setClicked] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/musics")
+    fetch("http://localhost:5000/musics")
       .then((res) => res.json())
       .then((musics) => {
         setMusic(musics);

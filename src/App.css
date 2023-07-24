@@ -3,16 +3,3 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
 
-.custom-alertify {
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    padding: 10px;
-    font-size: 16px;
-    display: inline-block;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-  }

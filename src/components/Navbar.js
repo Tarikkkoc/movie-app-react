@@ -35,9 +35,16 @@ const Navbar = () => {
                 Musics
               </li>
             </Link>
-            <li className="cursor-pointer p-2 rounded-xl hover:bg-blue-200 hover:text-black">
-              Login
-            </li>
+            <Link to="/login">
+              <li className="cursor-pointer p-2 rounded-xl hover:bg-blue-200 hover:text-black">
+                Login
+              </li>
+            </Link>
+            <Link to="/register">
+              <li className="cursor-pointer p-2 rounded-xl hover:bg-blue-200 hover:text-black">
+                Kayıt ol
+              </li>
+            </Link>
           </ul>
           <img
             className="h-5 shrink-1 mt-2 cursor-pointer"
@@ -93,7 +100,20 @@ const Navbar = () => {
               <Link onClick={handleClick} to="/musics">
                 <li>Musics</li>
               </Link>
-              <li>Login</li>
+              <Link onClick={handleClick} to="/login">
+                <div className="grid place-items-center">
+                  <button className="bg-blue-600 hover:bg-blue-400 rounded-full px-6 py-3 text-white">
+                    Giriş Yap
+                  </button>
+                </div>
+              </Link>
+              <Link onClick={handleClick} to="/register">
+                <div className="grid place-items-center">
+                  <button className="bg-blue-600 hover:bg-blue-400 rounded-full px-6 py-3 text-white">
+                    Kayıt ol
+                  </button>
+                </div>
+              </Link>
             </ul>
           </div>
         </div>

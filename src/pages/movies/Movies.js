@@ -23,7 +23,7 @@ const Movies = () => {
   const [movie, setMovie] = useState([]);
   const [clicked, setClicked] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/movies")
+    fetch("http://localhost:5000/movies")
       .then((res) => res.json())
       .then((movies) => {
         setMovie(movies);

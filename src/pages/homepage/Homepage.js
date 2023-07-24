@@ -70,19 +70,19 @@ const Homepage = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:3000/movies")
+    fetch("http://localhost:5000/movies")
       .then((res) => res.json())
       .then((movies) => {
         setMovie(movies);
       })
       .catch((error) => console.log(error));
-    fetch("http://localhost:3000/series")
+    fetch("http://localhost:5000/series")
       .then((res) => res.json())
       .then((series) => {
         setSerie(series);
       })
       .catch((error) => console.log(error));
-    fetch("http://localhost:3000/musics")
+    fetch("http://localhost:5000/musics")
       .then((res) => res.json())
       .then((musics) => {
         setMusic(musics);

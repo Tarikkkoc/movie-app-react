@@ -7,7 +7,7 @@ import Main from "./pages/homepage/Main";
 
 function App() {
   return (
-    <div className="bg-blue-600">
+    <div className="">
       <div className="bg-blue-600 fixed top-0 w-full z-10 rounded-b-xl">
         <Navbar />
       </div>
