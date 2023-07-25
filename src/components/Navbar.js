@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ currentUser }) => {
   const [search, setSearch] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const handleClick = () => {
@@ -35,16 +35,25 @@ const Navbar = () => {
                 Musics
               </li>
             </Link>
-            <Link to="/login">
+            <Link to="/my-account">
               <li className="cursor-pointer p-2 rounded-xl hover:bg-blue-200 hover:text-black">
-                Login
+                Hesabım
               </li>
             </Link>
-            <Link to="/register">
-              <li className="cursor-pointer p-2 rounded-xl hover:bg-blue-200 hover:text-black">
-                Kayıt ol
-              </li>
-            </Link>
+            {!currentUser && (
+              <div className="flex gap-8">
+                <Link to="/login">
+                  <li className="cursor-pointer p-2 rounded-xl hover:bg-blue-200 hover:text-black">
+                    Login
+                  </li>
+                </Link>
+                <Link to="/register">
+                  <li className="cursor-pointer p-2 rounded-xl hover:bg-blue-200 hover:text-black">
+                    Kayıt ol
+                  </li>
+                </Link>
+              </div>
+            )}
           </ul>
           <img
             className="h-5 shrink-1 mt-2 cursor-pointer"
@@ -100,20 +109,27 @@ const Navbar = () => {
               <Link onClick={handleClick} to="/musics">
                 <li>Musics</li>
               </Link>
-              <Link onClick={handleClick} to="/login">
-                <div className="grid place-items-center">
-                  <button className="bg-blue-600 hover:bg-blue-400 rounded-full px-6 py-3 text-white">
-                    Giriş Yap
-                  </button>
-                </div>
+              <Link onClick={handleClick} to="/my-account">
+                <li>Hesabım</li>
               </Link>
-              <Link onClick={handleClick} to="/register">
-                <div className="grid place-items-center">
-                  <button className="bg-blue-600 hover:bg-blue-400 rounded-full px-6 py-3 text-white">
-                    Kayıt ol
-                  </button>
+              {!currentUser && (
+                <div className="flex flex-col gap-8">
+                  <Link onClick={handleClick} to="/login">
+                    <div className="grid place-items-center">
+                      <button className="bg-blue-600 hover:bg-blue-400 rounded-full px-6 py-3 text-white">
+                        Giriş Yap
+                      </button>
+                    </div>
+                  </Link>
+                  <Link onClick={handleClick} to="/register">
+                    <div className="grid place-items-center">
+                      <button className="bg-blue-600 hover:bg-blue-400 rounded-full px-6 py-3 text-white">
+                        Kayıt ol
+                      </button>
+                    </div>
+                  </Link>
                 </div>
-              </Link>
+              )}
             </ul>
           </div>
         </div>

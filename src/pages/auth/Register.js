@@ -13,7 +13,6 @@ const Register = () => {
       name: name,
       surname: surname,
       mail: mail,
-
       username: username,
       password: password,
     };
