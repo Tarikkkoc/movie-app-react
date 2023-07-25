@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Login = ({ loginData, handleLogin }) => {
   const [username, setUsername] = useState("");
@@ -13,7 +14,11 @@ const Login = ({ loginData, handleLogin }) => {
     if (user) {
       handleLogin(username, password);
     } else {
-      alert("Hataaa");
+      Swal.fire(
+        "Kullanıcı adı veya şifre hatalı",
+        "Lütfen tekrar deneyin",
+        "error"
+      );
     }
   };
   return (

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Register = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [mail, setMail] = useState("");
@@ -23,9 +25,10 @@ const Register = () => {
     })
       .then((res) => {
         if (res.ok) {
-          console.log("Kullanıcı oluşturma işlemi başarılı");
+          Swal.fire("Kullanıcı oluşturma işlemi başarılı", "", "success");
+          navigate("/login");
         } else {
-          console.log("Kullanıcı oluşturulamadı");
+          Swal.fire("Kullanıcı oluşturulamadı", "error");
         }
       })
       .catch((error) => {
