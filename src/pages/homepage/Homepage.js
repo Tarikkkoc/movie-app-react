@@ -6,11 +6,19 @@ import Modal from "@mui/material/Modal";
 import Typography from "@mui/material/Typography";
 import { css, styled } from "@emotion/css";
 
-const Homepage = () => {
+const Homepage = ({ currentUser }) => {
   const [movie, setMovie] = useState([]);
   const [serie, setSerie] = useState([]);
   const [music, setMusic] = useState([]);
   const [clickedItemIds, setClickedItemIds] = useState([]);
+
+  const handleClick = (itemTitle) => {
+    if (clickedItemIds.includes(itemTitle)) {
+      setClickedItemIds(clickedItemIds.filter((title) => title !== itemTitle));
+    } else {
+      setClickedItemIds([...clickedItemIds, itemTitle]);
+    }
+  };
 
   const [openMusic, setOpenMusic] = useState(false);
   const [selectedMusicImg, setSelectedMusicImg] = useState(null);
@@ -58,15 +66,6 @@ const Homepage = () => {
     border: "2px solid #000",
     boxShadow: 24,
     p: 4,
-  };
-
-  const handleClick = (itemTitle) => {
-    alertify.notify("Success notification message.");
-    if (clickedItemIds.includes(itemTitle)) {
-      setClickedItemIds(clickedItemIds.filter((title) => title !== itemTitle));
-    } else {
-      setClickedItemIds([...clickedItemIds, itemTitle]);
-    }
   };
 
   useEffect(() => {

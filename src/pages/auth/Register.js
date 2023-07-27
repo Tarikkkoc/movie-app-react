@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 
 const Register = () => {
   const navigate = useNavigate();
+  const [user, setUser] = useState([]);
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [mail, setMail] = useState("");

@@ -1,14 +1,21 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const Navbar = ({ currentUser }) => {
+const Navbar = ({ currentUser, searchTerm, setSearchTerm, filteredMovies }) => {
   const [search, setSearch] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const navigate = useNavigate();
+
   const handleClick = () => {
     setIsDrawerOpen((prevState) => !prevState);
   };
   const handleSearch = () => {
     setSearch((prevState) => !prevState);
+  };
+
+  const goResults = () => {
+    navigate("/search-results");
   };
   return (
     <div>
@@ -81,11 +88,16 @@ const Navbar = ({ currentUser }) => {
       {search && (
         <div id="search-bar" className="flex gap-5 py-5 justify-center">
           <input
+            onChange={(e) => setSearchTerm(e.target.value)}
+            value={searchTerm}
             type="text"
             placeholder="Search"
             className="bg-blue-100 p-2 rounded-xl"
           />
-          <button className="cursor-pointer p-2 rounded-xl bg-blue-500 hover:bg-blue-200 hover:text-black text-white">
+          <button
+            onClick={goResults}
+            className="cursor-pointer p-2 rounded-xl bg-blue-500 hover:bg-blue-200 hover:text-black text-white"
+          >
             Search
           </button>
         </div>
