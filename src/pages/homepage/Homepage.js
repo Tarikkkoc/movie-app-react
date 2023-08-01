@@ -6,7 +6,27 @@ import Modal from "@mui/material/Modal";
 import Typography from "@mui/material/Typography";
 import { css, styled } from "@emotion/css";
 
-const Homepage = ({ currentUser }) => {
+const Homepage = ({
+  currentUser,
+  detailMovie,
+  detailSerie,
+  detailMusic,
+  openMovie,
+  selectedMovieImg,
+  selectedMovieTitle,
+  handleOpenMovie,
+  handleCloseMovie,
+  openSerie,
+  selectedSerieImg,
+  selectedSerieTitle,
+  handleOpenSerie,
+  handleCloseSerie,
+  openMusic,
+  selectedMusicImg,
+  selectedMusicTitle,
+  handleOpenMusic,
+  handleCloseMusic,
+}) => {
   const [movie, setMovie] = useState([]);
   const [serie, setSerie] = useState([]);
   const [music, setMusic] = useState([]);
@@ -18,42 +38,6 @@ const Homepage = ({ currentUser }) => {
     } else {
       setClickedItemIds([...clickedItemIds, itemTitle]);
     }
-  };
-
-  const [openMusic, setOpenMusic] = useState(false);
-  const [selectedMusicImg, setSelectedMusicImg] = useState(null);
-  const [selectedMusicTitle, setSelectedMusicTitle] = useState(null);
-  const handleOpenMusic = (img, title) => {
-    setSelectedMusicImg(img);
-    setSelectedMusicTitle(title);
-    setOpenMusic(true);
-  };
-  const handleCloseMusic = () => {
-    setOpenMusic(false);
-  };
-
-  const [openMovie, setOpenMovie] = useState(false);
-  const [selectedMovieImg, setSelectedMovieImg] = useState(null);
-  const [selectedMovieTitle, setSelectedMovieTitle] = useState(null);
-  const handleOpenMovie = (img, title) => {
-    setSelectedMovieImg(img);
-    setSelectedMovieTitle(title);
-    setOpenMovie(true);
-  };
-  const handleCloseMovie = () => {
-    setOpenMovie(false);
-  };
-
-  const [openSerie, setOpenSerie] = useState(false);
-  const [selectedSerieImg, setSelectedSerieImg] = useState(null);
-  const [selectedSerieTitle, setSelectedSerieTitle] = useState(null);
-  const handleOpenSerie = (img, title) => {
-    setSelectedSerieImg(img);
-    setSelectedSerieTitle(title);
-    setOpenSerie(true);
-  };
-  const handleCloseSerie = () => {
-    setOpenSerie(false);
   };
 
   const style = {
@@ -114,6 +98,7 @@ const Homepage = ({ currentUser }) => {
                   <div>
                     <p>Filmin konusu eklenince burada yer alacak.</p>
                   </div>
+                  <button onClick={detailMovie}>detay</button>
                 </div>
               </div>
             )}
@@ -122,7 +107,9 @@ const Homepage = ({ currentUser }) => {
         {movie.map((item) => (
           <div className="w-60 relative shadow-2xl" key={item.id}>
             <img
-              onClick={() => handleOpenMovie(item.img, item.title)}
+              onClick={() =>
+                handleOpenMovie(item.img, item.title, item.rating, item.genre)
+              }
               className="w-full h-72 rounded-xl hover:-translate-y-0.5 hover:scale-105 transition ease-in-out delay-150 duration-500 cursor-pointer"
               src={item.img}
               alt=""
@@ -182,6 +169,7 @@ const Homepage = ({ currentUser }) => {
                   <div>
                     <p>Dizinin konusu eklenince burada yer alacak.</p>
                   </div>
+                  <button onClick={detailSerie}>detay</button>
                 </div>
               </div>
             )}
@@ -190,7 +178,9 @@ const Homepage = ({ currentUser }) => {
         {serie.map((item) => (
           <div className="w-60 relative shadow-2xl" key={item.id}>
             <img
-              onClick={() => handleOpenMovie(item.img, item.title)}
+              onClick={() =>
+                handleOpenSerie(item.img, item.title, item.rating, item.genre)
+              }
               className="w-full h-72 rounded-xl hover:-translate-y-0.5 hover:scale-105 transition ease-in-out delay-150 duration-500 cursor-pointer"
               src={item.img}
               alt=""
@@ -251,6 +241,7 @@ const Homepage = ({ currentUser }) => {
                   <div>
                     <p>Şarkının konusu eklenince burada yer alacak.</p>
                   </div>
+                  <button onClick={detailMusic}>detay</button>
                 </div>
               </div>
             )}
@@ -259,7 +250,9 @@ const Homepage = ({ currentUser }) => {
         {music.map((item) => (
           <div className="w-60 relative shadow-2xl" key={item.id}>
             <img
-              onClick={() => handleOpenMusic(item.img, item.title)}
+              onClick={() =>
+                handleOpenMusic(item.img, item.title, item.rating, item.genre)
+              }
               className="w-full h-72 rounded-xl hover:-translate-y-0.5 hover:scale-105 transition ease-in-out delay-150 duration-500 cursor-pointer"
               src={item.img}
               alt=""

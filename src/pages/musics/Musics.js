@@ -4,8 +4,16 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Typography from "@mui/material/Typography";
 import { css, styled } from "@emotion/css";
+import { Link } from "react-router-dom";
 
-const Musics = () => {
+const Musics = ({
+  openMusic,
+  selectedMusicImg,
+  selectedMusicTitle,
+  handleOpenMusic,
+  handleCloseMusic,
+  detailMusic,
+}) => {
   const musicHeros = [{ title: "Pop" }, { title: "Rap" }, { title: "Rock" }];
 
   const [musicGenre, setMusicGenre] = useState(null);
@@ -13,18 +21,7 @@ const Musics = () => {
 
   const [music, setMusic] = useState([]);
   const [clicked, setClicked] = useState([]);
-  const [openMusic, setOpenMusic] = useState(false);
-  const [selectedMusicImg, setSelectedMusicImg] = useState(null);
-  const [selectedMusicTitle, setSelectedMusicTitle] = useState(null);
-  const handleOpenMusic = (img, title) => {
-    setOpenMusic(true);
-    setSelectedMusicImg(img);
-    setSelectedMusicTitle(title);
-  };
 
-  const handleCloseMusic = () => {
-    setOpenMusic(false);
-  };
   useEffect(() => {
     fetch("http://localhost:5000/musics")
       .then((res) => res.json())
@@ -86,6 +83,7 @@ const Musics = () => {
                       <div>
                         <p>Şarkının konusu eklenince burada yer alacak.</p>
                       </div>
+                      <button onClick={detailMusic}>detay</button>
                     </div>
                   </div>
                 )}
@@ -94,7 +92,14 @@ const Musics = () => {
             {music.map((item) => (
               <div className="w-60 relative shadow-2xl" key={item.id}>
                 <img
-                  onClick={() => handleOpenMusic(item.img, item.title)}
+                  onClick={() =>
+                    handleOpenMusic(
+                      item.img,
+                      item.title,
+                      item.rating,
+                      item.genre
+                    )
+                  }
                   className="w-full h-72 rounded-xl hover:-translate-y-0.5 hover:scale-105 transition ease-in-out delay-150 duration-500 cursor-pointer"
                   src={item.img}
                   alt=""
@@ -143,6 +148,7 @@ const Musics = () => {
                     <div>
                       <p>Filmin konusu eklenince burada yer alacak.</p>
                     </div>
+                    <button onClick={detailMusic}>detay</button>
                   </div>
                 </div>
               )}

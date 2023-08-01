@@ -2,8 +2,16 @@ import React, { useEffect, useState } from "react";
 import Heros from "../hero/Hero";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
+import { Link } from "react-router-dom";
 
-const Movies = () => {
+const Movies = ({
+  openMovie,
+  selectedMovieImg,
+  selectedMovieTitle,
+  handleOpenMovie,
+  handleCloseMovie,
+  detailMovie,
+}) => {
   const movieHeros = [
     { title: "Aksiyon" },
     { title: "Macera" },
@@ -32,20 +40,6 @@ const Movies = () => {
 
   const [movie, setMovie] = useState([]);
   const [clicked, setClicked] = useState([]);
-
-  const [openMovie, setOpenMovie] = useState(false);
-  const [selectedMovieImg, setSelectedMovieImg] = useState(null);
-  const [selectedMovieTitle, setSelectedMovieTitle] = useState(null);
-
-  const handleOpenMovie = (img, title) => {
-    setSelectedMovieImg(img);
-    setSelectedMovieTitle(title);
-    setOpenMovie(true);
-  };
-
-  const handleCloseMovie = () => {
-    setOpenMovie(false);
-  };
 
   useEffect(() => {
     fetch("http://localhost:5000/movies")
@@ -103,6 +97,7 @@ const Movies = () => {
                       <div>
                         <p>Filmin konusu eklenince burada yer alacak.</p>
                       </div>
+                      <button onClick={detailMovie}>detay</button>
                     </div>
                   </div>
                 )}
@@ -111,7 +106,14 @@ const Movies = () => {
             {movie.map((item) => (
               <div className="w-60 relative shadow-2xl" key={item.id}>
                 <img
-                  onClick={() => handleOpenMovie(item.img, item.title)}
+                  onClick={() =>
+                    handleOpenMovie(
+                      item.img,
+                      item.title,
+                      item.rating,
+                      item.genre
+                    )
+                  }
                   className="w-full h-72 rounded-xl hover:-translate-y-0.5 hover:scale-105 transition ease-in-out delay-150 duration-500 cursor-pointer"
                   src={item.img}
                   alt=""
@@ -165,6 +167,7 @@ const Movies = () => {
                     <div>
                       <p>Filmin konusu eklenince burada yer alacak.</p>
                     </div>
+                    <button onClick={detailMovie}>detay</button>
                   </div>
                 </div>
               )}
@@ -174,7 +177,14 @@ const Movies = () => {
             {movieGenre.map((item) => (
               <div className="w-60 relative shadow-2xl" key={item.id}>
                 <img
-                  onClick={() => handleOpenMovie(item.img, item.title)}
+                  onClick={() =>
+                    handleOpenMovie(
+                      item.img,
+                      item.title,
+                      item.rating,
+                      item.genre
+                    )
+                  }
                   className="w-full h-72 rounded-xl hover:-translate-y-0.5 hover:scale-105 transition ease-in-out delay-150 duration-500 cursor-pointer"
                   src={item.img}
                   alt=""

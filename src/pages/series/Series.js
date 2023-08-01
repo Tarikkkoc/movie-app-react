@@ -5,7 +5,14 @@ import Modal from "@mui/material/Modal";
 import Typography from "@mui/material/Typography";
 import { css, styled } from "@emotion/css";
 
-const Series = () => {
+const Series = ({
+  openSerie,
+  selectedSerieImg,
+  selectedSerieTitle,
+  handleOpenSerie,
+  handleCloseSerie,
+  detailSerie,
+}) => {
   const serieHeros = [
     { title: "Aksiyon" },
     { title: "Macera" },
@@ -18,9 +25,6 @@ const Series = () => {
   const [titleGenre, setTitleGenre] = useState(null);
   const [serieGenre, setSerieGenre] = useState(null);
   const [clicked, setClicked] = useState([]);
-  const [openSerie, setOpenSerie] = useState(false);
-  const [selectedSerieImg, setSelectedSerieImg] = useState(null);
-  const [selectedSerieTitle, setSelectedSerieTitle] = useState(null);
 
   const filterGenre = (genre) => {
     const filteredGenre = serie.filter((s) => s.genre === genre);
@@ -28,14 +32,6 @@ const Series = () => {
     setTitleGenre(genre);
   };
 
-  const handleOpenSerie = (img, title) => {
-    setSelectedSerieImg(img);
-    setSelectedSerieTitle(title);
-    setOpenSerie(true);
-  };
-  const handleCloseSerie = () => {
-    setOpenSerie(false);
-  };
   useEffect(() => {
     fetch("http://localhost:5000/series")
       .then((res) => res.json())
@@ -91,6 +87,7 @@ const Series = () => {
                       <div>
                         <p>Filmin konusu eklenince burada yer alacak.</p>
                       </div>
+                      <button onClick={detailSerie}>detay</button>
                     </div>
                   </div>
                 )}
@@ -99,7 +96,14 @@ const Series = () => {
             {serie.map((item) => (
               <div className="w-60 relative shadow-2xl" key={item.id}>
                 <img
-                  onClick={() => handleOpenSerie(item.img, item.title)}
+                  onClick={() =>
+                    handleOpenSerie(
+                      item.img,
+                      item.title,
+                      item.rating,
+                      item.genre
+                    )
+                  }
                   className="w-full h-72 rounded-xl hover:-translate-y-0.5 hover:scale-105 transition ease-in-out delay-150 duration-500 cursor-pointer"
                   src={item.img}
                   alt=""
@@ -148,6 +152,7 @@ const Series = () => {
                     <div>
                       <p>Filmin konusu eklenince burada yer alacak.</p>
                     </div>
+                    <button onClick={detailSerie}>detay</button>
                   </div>
                 </div>
               )}
@@ -157,7 +162,14 @@ const Series = () => {
             {serieGenre.map((item) => (
               <div className="w-60 relative shadow-2xl" key={item.id}>
                 <img
-                  onClick={() => handleOpenSerie(item.img, item.title)}
+                  onClick={() =>
+                    handleOpenSerie(
+                      item.img,
+                      item.title,
+                      item.rating,
+                      item.genre
+                    )
+                  }
                   className="w-full h-72 rounded-xl hover:-translate-y-0.5 hover:scale-105 transition ease-in-out delay-150 duration-500 cursor-pointer"
                   src={item.img}
                   alt=""
