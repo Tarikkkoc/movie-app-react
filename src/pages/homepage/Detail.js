@@ -5,17 +5,21 @@ const Detail = ({
   detailMovieTitle,
   detailMovieRating,
   detailMovieGenre,
+  detailMovieMatter,
   detailSerieImg,
   detailSerieTitle,
   detailSerieRating,
   detailSerieGenre,
+  detailSerieMatter,
   detailMusicImg,
   detailMusicTitle,
   detailMusicGenre,
+  detailMusicMatter,
   detailFilterImg,
   detailFilterTitle,
   detailFilterRating,
   detailFilterGenre,
+  detailFilterMatter,
 }) => {
   return (
     <div className="">
@@ -40,12 +44,15 @@ const Detail = ({
                 </div>
               </div>
             </div>
-            <div>
+            <div className="flex gap-10 font-barlow">
               <img
                 className="h-96 rounded-lg shadow-3xl"
                 src={detailMovieImg}
                 alt=""
               />
+              <div>
+                <p>{detailMovieMatter}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -71,12 +78,15 @@ const Detail = ({
                 </div>
               </div>
             </div>
-            <div>
+            <div className="flex gap-10 font-barlow">
               <img
                 className="h-96 rounded-lg shadow-3xl"
                 src={detailSerieImg}
                 alt=""
               />
+              <div>
+                <p>{detailSerieMatter}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -94,12 +104,15 @@ const Detail = ({
                 <span>{detailMusicGenre}</span>
               </div>
             </div>
-            <div>
+            <div className="flex gap-10 font-barlow">
               <img
                 className="h-96 rounded-lg shadow-3xl"
                 src={detailMusicImg}
                 alt=""
               />
+              <div>
+                <p>{detailMusicMatter}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -125,12 +138,15 @@ const Detail = ({
                 </div>
               </div>
             </div>
-            <div>
+            <div className="flex gap-10 font-barlow">
               <img
                 className="h-96 rounded-lg shadow-3xl"
                 src={detailFilterImg}
                 alt=""
               />
+              <div>
+                <p>{detailFilterMatter}</p>
+              </div>
             </div>
           </div>
         </div>

@@ -29,16 +29,19 @@ const Main = () => {
   const [detailFilterTitle, setDetailFilterTitle] = useState(null);
   const [detailFilterRating, setDetailFilterRating] = useState(null);
   const [detailFilterGenre, setDetailFilterGenre] = useState(null);
+  const [detailFilterMatter, setDetailFilterMatter] = useState(null);
   const [selectedFilterImg, setSelectedFilterImg] = useState(null);
   const [selectedFilterTitle, setSelectedFilterTitle] = useState(null);
   const [selectedFilterRating, setSelectedFilterRating] = useState(null);
   const [selectedFilterGenre, setSelectedFilterGenre] = useState(null);
+  const [selectedFilterMatter, setSelectedFilterMatter] = useState(null);
 
-  const handleOpenFilter = (img, title, rating, genre) => {
+  const handleOpenFilter = (img, title, rating, genre, matter) => {
     setSelectedFilterImg(img);
     setSelectedFilterTitle(title);
     setSelectedFilterRating(rating);
     setSelectedFilterGenre(genre);
+    setSelectedFilterMatter(matter);
     setOpenFilter(true);
   };
 
@@ -51,6 +54,7 @@ const Main = () => {
     setDetailFilterTitle(selectedFilterTitle);
     setDetailFilterRating(selectedFilterRating);
     setDetailFilterGenre(selectedFilterGenre);
+    setDetailFilterMatter(selectedFilterMatter);
     setOpenFilter(false);
     setDetailMovieImg(null);
     setDetailSerieImg(null);
@@ -133,12 +137,14 @@ const Main = () => {
   const [selectedSerieTitle, setSelectedSerieTitle] = useState(null);
   const [selectedSerieRating, setSelectedSerieRating] = useState(null);
   const [selectedSerieGenre, setSelectedSerieGenre] = useState(null);
+  const [selectedSerieMatter, setSelectedSerieMatter] = useState(null);
 
-  const handleOpenSerie = (img, title, rating, genre) => {
+  const handleOpenSerie = (img, title, rating, genre, matter) => {
     setSelectedSerieImg(img);
     setSelectedSerieTitle(title);
     setSelectedSerieRating(rating);
     setSelectedSerieGenre(genre);
+    setSelectedSerieMatter(matter);
     setOpenSerie(true);
   };
 
@@ -151,13 +157,15 @@ const Main = () => {
   const [selectedMusicTitle, setSelectedMusicTitle] = useState(null);
   const [selectedMusicRating, setSelectedMusicRating] = useState(null);
   const [selectedMusicGenre, setSelectedMusicGenre] = useState(null);
+  const [selectedMusicMatter, setSelectedMusicMatter] = useState(null);
 
-  const handleOpenMusic = (img, title, rating, genre) => {
+  const handleOpenMusic = (img, title, rating, genre, matter) => {
     setOpenMusic(true);
     setSelectedMusicImg(img);
     setSelectedMusicTitle(title);
     setSelectedMusicRating(rating);
     setSelectedMusicGenre(genre);
+    setSelectedMusicMatter(matter);
   };
 
   const handleCloseMusic = () => {
@@ -168,12 +176,14 @@ const Main = () => {
   const [detailMovieTitle, setDetailMovieTitle] = useState(null);
   const [detailMovieRating, setDetailMovieRating] = useState(null);
   const [detailMovieGenre, setDetailMovieGenre] = useState(null);
+  const [detailMovieMatter, setDetailMovieMatter] = useState(null);
 
   const detailMovie = () => {
     setDetailMovieImg(selectedMovieImg);
     setDetailMovieTitle(selectedMovieTitle);
     setDetailMovieRating(selectedMovieRating);
     setDetailMovieGenre(selectedMovieGenre);
+    setDetailMovieMatter(selectedMovieMatter);
     setDetailSerieImg(null);
     setDetailMusicImg(null);
     setDetailFilterImg(null);
@@ -185,12 +195,14 @@ const Main = () => {
   const [detailSerieTitle, setDetailSerieTitle] = useState(null);
   const [detailSerieRating, setDetailSerieRating] = useState(null);
   const [detailSerieGenre, setDetailSerieGenre] = useState(null);
+  const [detailSerieMatter, setDetailSerieMatter] = useState(null);
 
   const detailSerie = () => {
     setDetailSerieImg(selectedSerieImg);
     setDetailSerieTitle(selectedSerieTitle);
     setDetailSerieRating(selectedSerieRating);
     setDetailSerieGenre(selectedSerieGenre);
+    setDetailSerieMatter(selectedSerieMatter);
     setDetailMovieImg(null);
     setDetailMusicImg(null);
     setDetailFilterImg(null);
@@ -202,12 +214,14 @@ const Main = () => {
   const [detailMusicTitle, setDetailMusicTitle] = useState(null);
   const [detailMusicRating, setDetailMusicRating] = useState(null);
   const [detailMusicGenre, setDetailMusicGenre] = useState(null);
+  const [detailMusicMatter, setDetailMusicMatter] = useState(null);
 
   const detailMusic = () => {
     setDetailMusicImg(selectedMusicImg);
     setDetailMusicTitle(selectedMusicTitle);
     setDetailMusicRating(selectedMusicRating);
     setDetailMusicGenre(selectedMusicGenre);
+    setDetailMusicMatter(selectedMusicMatter);
     setOpenMusic(false);
     setDetailMovieImg(null);
     setDetailSerieImg(null);
@@ -330,18 +344,22 @@ const Main = () => {
               detailMovieTitle={detailMovieTitle}
               detailMovieRating={detailMovieRating}
               detailMovieGenre={detailMovieGenre}
+              detailMovieMatter={detailMovieMatter}
               detailSerieImg={detailSerieImg}
               detailSerieTitle={detailSerieTitle}
               detailSerieRating={detailSerieRating}
               detailSerieGenre={detailSerieGenre}
+              detailSerieMatter={detailSerieMatter}
               detailMusicImg={detailMusicImg}
               detailMusicTitle={detailMusicTitle}
               detailMusicRating={detailMusicRating}
               detailMusicGenre={detailMusicGenre}
+              detailMusicMatter={detailMusicMatter}
               detailFilterImg={detailFilterImg}
               detailFilterTitle={detailFilterTitle}
               detailFilterRating={detailFilterRating}
               detailFilterGenre={detailFilterGenre}
+              detailFilterMatter={detailFilterMatter}
             />
           }
         />

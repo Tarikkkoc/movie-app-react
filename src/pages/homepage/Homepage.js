@@ -206,7 +206,13 @@ const Homepage = ({
             <div className="w-60 relative shadow-2xl" key={item.id}>
               <img
                 onClick={() =>
-                  handleOpenSerie(item.img, item.title, item.rating, item.genre)
+                  handleOpenSerie(
+                    item.img,
+                    item.title,
+                    item.rating,
+                    item.genre,
+                    item.matter
+                  )
                 }
                 className="w-full h-72 rounded-xl hover:-translate-y-0.5 hover:scale-105 transition ease-in-out delay-150 duration-500 cursor-pointer"
                 src={item.img}
@@ -287,7 +293,13 @@ const Homepage = ({
             <div className="w-60 relative shadow-2xl" key={item.id}>
               <img
                 onClick={() =>
-                  handleOpenMusic(item.img, item.title, item.rating, item.genre)
+                  handleOpenMusic(
+                    item.img,
+                    item.title,
+                    item.rating,
+                    item.genre,
+                    item.matter
+                  )
                 }
                 className="w-full h-72 rounded-xl hover:-translate-y-0.5 hover:scale-105 transition ease-in-out delay-150 duration-500 cursor-pointer"
                 src={item.img}

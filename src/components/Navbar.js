@@ -15,6 +15,7 @@ const Navbar = ({ currentUser, searchTerm, setSearchTerm, filteredMovies }) => {
   };
 
   const goResults = () => {
+    setSearch((prevState) => !prevState);
     navigate("/search-results");
   };
   return (

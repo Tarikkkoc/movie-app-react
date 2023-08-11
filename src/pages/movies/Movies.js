@@ -119,7 +119,8 @@ const Movies = ({
                       item.img,
                       item.title,
                       item.rating,
-                      item.genre
+                      item.genre,
+                      item.matter
                     )
                   }
                   className="w-full h-72 rounded-xl hover:-translate-y-0.5 hover:scale-105 transition ease-in-out delay-150 duration-500 cursor-pointer"
@@ -197,7 +198,8 @@ const Movies = ({
                       item.img,
                       item.title,
                       item.rating,
-                      item.genre
+                      item.genre,
+                      item.matter
                     )
                   }
                   className="w-full h-72 rounded-xl hover:-translate-y-0.5 hover:scale-105 transition ease-in-out delay-150 duration-500 cursor-pointer"
