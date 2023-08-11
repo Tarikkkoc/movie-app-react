@@ -113,12 +113,14 @@ const Main = () => {
   const [selectedMovieTitle, setSelectedMovieTitle] = useState(null);
   const [selectedMovieRating, setSelectedMovieRating] = useState(null);
   const [selectedMovieGenre, setSelectedMovieGenre] = useState(null);
+  const [selectedMovieMatter, setSelectedMovieMatter] = useState(null);
 
-  const handleOpenMovie = (img, title, rating, genre) => {
+  const handleOpenMovie = (img, title, rating, genre, matter) => {
     setSelectedMovieImg(img);
     setSelectedMovieTitle(title);
     setSelectedMovieRating(rating);
     setSelectedMovieGenre(genre);
+    setSelectedMovieMatter(matter);
     setOpenMovie(true);
   };
 
@@ -234,11 +236,15 @@ const Main = () => {
               openMovie={openMovie}
               selectedMovieImg={selectedMovieImg}
               selectedMovieTitle={selectedMovieTitle}
+              selectedMovieMatter={selectedMovieMatter}
+              selectedMovieGenre={selectedMovieGenre}
               handleOpenMovie={handleOpenMovie}
               handleCloseMovie={handleCloseMovie}
               openSerie={openSerie}
               selectedSerieImg={selectedSerieImg}
               selectedSerieTitle={selectedSerieTitle}
+              selectedSerieGenre={selectedSerieGenre}
+              selectedMusicGenre={selectedMusicGenre}
               handleOpenSerie={handleOpenSerie}
               handleCloseSerie={handleCloseSerie}
               openMusic={openMusic}
@@ -254,6 +260,7 @@ const Main = () => {
           element={
             <Movies
               openMovie={openMovie}
+              selectedMovieGenre={selectedMovieGenre}
               selectedMovieImg={selectedMovieImg}
               selectedMovieTitle={selectedMovieTitle}
               handleOpenMovie={handleOpenMovie}
@@ -267,6 +274,7 @@ const Main = () => {
           element={
             <Series
               openSerie={openSerie}
+              selectedSerieGenre={selectedSerieGenre}
               selectedSerieImg={selectedSerieImg}
               selectedSerieTitle={selectedSerieTitle}
               handleOpenSerie={handleOpenSerie}
@@ -282,6 +290,7 @@ const Main = () => {
               openMusic={openMusic}
               selectedMusicImg={selectedMusicImg}
               selectedMusicTitle={selectedMusicTitle}
+              selectedMusicGenre={selectedMusicGenre}
               handleOpenMusic={handleOpenMusic}
               handleCloseMusic={handleCloseMusic}
               detailMusic={detailMusic}

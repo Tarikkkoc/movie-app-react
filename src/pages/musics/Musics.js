@@ -10,6 +10,7 @@ const Musics = ({
   openMusic,
   selectedMusicImg,
   selectedMusicTitle,
+  selectedMusicGenre,
   handleOpenMusic,
   handleCloseMusic,
   detailMusic,
@@ -76,14 +77,21 @@ const Musics = ({
                 {selectedMusicImg && (
                   <div className="flex gap-5">
                     <img className="w-1/2" src={selectedMusicImg} />
-                    <div className="flex flex-col gap-2">
-                      <div className="text-black text-2xl font-semibold font-barlow">
-                        {selectedMusicTitle}
+                    <div className="flex flex-col gap-20 ">
+                      <div>
+                        <p className="text-black text-2xl font-semibold font-barlow">
+                          {selectedMusicTitle}
+                        </p>
+                        <p>Tür: {selectedMusicGenre}</p>
                       </div>
                       <div>
-                        <p>Şarkının konusu eklenince burada yer alacak.</p>
+                        <button
+                          className="w-20 p-2 bg-blue-900 text-white font-barlow rounded-xl hover:bg-blue-500"
+                          onClick={detailMusic}
+                        >
+                          Detay
+                        </button>
                       </div>
-                      <button onClick={detailMusic}>detay</button>
                     </div>
                   </div>
                 )}
@@ -118,6 +126,11 @@ const Musics = ({
                   <span className="text-white text-2xl font-semibold">
                     {item.title}
                   </span>
+                  <div>
+                    <span className="bg-green-900 text-white font-semibold p-2 rounded-full ">
+                      {item.rating}
+                    </span>
+                  </div>
                 </div>
               </div>
             ))}
@@ -141,14 +154,21 @@ const Musics = ({
               {selectedMusicImg && (
                 <div className="flex gap-5">
                   <img className="w-1/2" src={selectedMusicImg} />
-                  <div className="flex flex-col gap-2">
-                    <div className="text-black text-2xl font-semibold font-barlow">
-                      {selectedMusicTitle}
+                  <div className="flex flex-col gap-20 ">
+                    <div>
+                      <p className="text-black text-2xl font-semibold font-barlow">
+                        {selectedMusicTitle}
+                      </p>
+                      <p>Tür: {selectedMusicGenre}</p>
                     </div>
                     <div>
-                      <p>Filmin konusu eklenince burada yer alacak.</p>
+                      <button
+                        className="w-20 p-2 bg-blue-900 text-white font-barlow rounded-xl hover:bg-blue-500"
+                        onClick={detailMusic}
+                      >
+                        Detay
+                      </button>
                     </div>
-                    <button onClick={detailMusic}>detay</button>
                   </div>
                 </div>
               )}
@@ -158,7 +178,14 @@ const Musics = ({
             {musicGenre.map((item) => (
               <div className="w-60 relative shadow-2xl" key={item.id}>
                 <img
-                  onClick={() => handleOpenMusic(item.img, item.title)}
+                  onClick={() =>
+                    handleOpenMusic(
+                      item.img,
+                      item.title,
+                      item.rating,
+                      item.genre
+                    )
+                  }
                   className="w-full h-72 rounded-xl hover:-translate-y-0.5 hover:scale-105 transition ease-in-out delay-150 duration-500 cursor-pointer"
                   src={item.img}
                   alt=""

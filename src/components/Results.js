@@ -56,7 +56,12 @@ const Results = ({
                   <div>
                     <p>Filmin konusu eklenince burada yer alacak.</p>
                   </div>
-                  <button onClick={detailFilter}>detay</button>
+                  <button
+                    className="w-1/2 p-2 bg-blue-900 text-white font-barlow rounded-xl hover:bg-blue-500"
+                    onClick={detailFilter}
+                  >
+                    Detay
+                  </button>
                 </div>
               </div>
             )}

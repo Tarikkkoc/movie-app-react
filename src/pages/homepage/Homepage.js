@@ -8,6 +8,9 @@ import { css, styled } from "@emotion/css";
 
 const Homepage = ({
   currentUser,
+  selectedMovieGenre,
+  selectedSerieGenre,
+  selectedMusicGenre,
   detailMovie,
   detailSerie,
   detailMusic,
@@ -91,51 +94,66 @@ const Homepage = ({
             {selectedMovieImg && (
               <div className="flex gap-5">
                 <img className="w-1/2" src={selectedMovieImg} />
-                <div className="flex flex-col gap-2">
-                  <div className="text-black text-2xl font-semibold font-barlow">
-                    {selectedMovieTitle}
+                <div className="flex flex-col gap-20 ">
+                  <div>
+                    <p className="text-black text-2xl font-semibold font-barlow">
+                      {selectedMovieTitle}
+                    </p>
+                    <p>Tür: {selectedMovieGenre}</p>
                   </div>
                   <div>
-                    <p>Filmin konusu eklenince burada yer alacak.</p>
+                    <button
+                      className="w-20 p-2 bg-blue-900 text-white font-barlow rounded-xl hover:bg-blue-500"
+                      onClick={detailMovie}
+                    >
+                      Detay
+                    </button>
                   </div>
-                  <button onClick={detailMovie}>detay</button>
                 </div>
               </div>
             )}
           </Box>
         </Modal>
-        {movie.map((item) => (
-          <div className="w-60 relative shadow-2xl" key={item.id}>
-            <img
-              onClick={() =>
-                handleOpenMovie(item.img, item.title, item.rating, item.genre)
-              }
-              className="w-full h-72 rounded-xl hover:-translate-y-0.5 hover:scale-105 transition ease-in-out delay-150 duration-500 cursor-pointer"
-              src={item.img}
-              alt=""
-            />
-            <div
-              onClick={() => handleClick(item.title)}
-              className={`absolute rounded-full cursor-pointer top-1.5 right-1.5 p-1 ${
-                clickedItemIds.includes(item.title)
-                  ? "bg-green-500"
-                  : "bg-white opacity-70 hover:opacity-100"
-              }`}
-            >
-              <img className="w-6" src="/img/star1.svg" alt="" />
-            </div>
-            <div className="flex items-center absolute bottom-1 left-1 right-1 font-barlow p-1 justify-between">
-              <span className="text-white text-2xl font-semibold">
-                {item.title}
-              </span>
-              <div>
-                <span className="bg-green-900 text-white font-semibold p-2 rounded-full ">
-                  {item.rating}
+        {movie
+          .filter((item) => item.rating >= 7.5)
+          .map((item) => (
+            <div className="w-60 relative shadow-2xl" key={item.id}>
+              <img
+                onClick={() =>
+                  handleOpenMovie(
+                    item.img,
+                    item.title,
+                    item.rating,
+                    item.genre,
+                    item.matter
+                  )
+                }
+                className="w-full h-72 rounded-xl hover:-translate-y-0.5 hover:scale-105 transition ease-in-out delay-150 duration-500 cursor-pointer"
+                src={item.img}
+                alt=""
+              />
+              <div
+                onClick={() => handleClick(item.title)}
+                className={`absolute rounded-full cursor-pointer top-1.5 right-1.5 p-1 ${
+                  clickedItemIds.includes(item.title)
+                    ? "bg-green-500"
+                    : "bg-white opacity-70 hover:opacity-100"
+                }`}
+              >
+                <img className="w-6" src="/img/star1.svg" alt="" />
+              </div>
+              <div className="flex items-center absolute bottom-1 left-1 right-1 font-barlow p-1 justify-between">
+                <span className="text-white text-2xl font-semibold">
+                  {item.title}
                 </span>
+                <div>
+                  <span className="bg-green-900 text-white font-semibold p-2 rounded-full ">
+                    {item.rating}
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
       <div className="mt-8 text-center font-barlow text-lg">
         <p>
@@ -162,51 +180,60 @@ const Homepage = ({
             {selectedSerieImg && (
               <div className="flex gap-5">
                 <img className="w-1/2" src={selectedSerieImg} />
-                <div className="flex flex-col gap-2">
-                  <div className="text-black text-2xl font-semibold font-barlow">
-                    {selectedSerieTitle}
+                <div className="flex flex-col gap-20 ">
+                  <div>
+                    <p className="text-black text-2xl font-semibold font-barlow">
+                      {selectedSerieTitle}
+                    </p>
+                    <p>Tür: {selectedSerieGenre}</p>
                   </div>
                   <div>
-                    <p>Dizinin konusu eklenince burada yer alacak.</p>
+                    <button
+                      className="w-20 p-2 bg-blue-900 text-white font-barlow rounded-xl hover:bg-blue-500"
+                      onClick={detailSerie}
+                    >
+                      Detay
+                    </button>
                   </div>
-                  <button onClick={detailSerie}>detay</button>
                 </div>
               </div>
             )}
           </Box>
         </Modal>
-        {serie.map((item) => (
-          <div className="w-60 relative shadow-2xl" key={item.id}>
-            <img
-              onClick={() =>
-                handleOpenSerie(item.img, item.title, item.rating, item.genre)
-              }
-              className="w-full h-72 rounded-xl hover:-translate-y-0.5 hover:scale-105 transition ease-in-out delay-150 duration-500 cursor-pointer"
-              src={item.img}
-              alt=""
-            />
-            <div
-              onClick={() => handleClick(item.title)}
-              className={`absolute top-1.5 right-1.5 p-1 rounded-full cursor-pointer ${
-                clickedItemIds.includes(item.title)
-                  ? "bg-green-500"
-                  : " bg-white opacity-70 hover:opacity-100"
-              }`}
-            >
-              <img className="w-6" src="/img/star1.svg" alt="" />
-            </div>
-            <div className="flex items-center absolute bottom-1 left-1 right-1 font-barlow p-1 justify-between">
-              <span className="text-white text-2xl font-semibold">
-                {item.title}
-              </span>
-              <div>
-                <span className="bg-green-900 text-white font-semibold p-2 rounded-full ">
-                  {item.rating}
+        {serie
+          .filter((item) => item.rating >= 8)
+          .map((item) => (
+            <div className="w-60 relative shadow-2xl" key={item.id}>
+              <img
+                onClick={() =>
+                  handleOpenSerie(item.img, item.title, item.rating, item.genre)
+                }
+                className="w-full h-72 rounded-xl hover:-translate-y-0.5 hover:scale-105 transition ease-in-out delay-150 duration-500 cursor-pointer"
+                src={item.img}
+                alt=""
+              />
+              <div
+                onClick={() => handleClick(item.title)}
+                className={`absolute top-1.5 right-1.5 p-1 rounded-full cursor-pointer ${
+                  clickedItemIds.includes(item.title)
+                    ? "bg-green-500"
+                    : " bg-white opacity-70 hover:opacity-100"
+                }`}
+              >
+                <img className="w-6" src="/img/star1.svg" alt="" />
+              </div>
+              <div className="flex items-center absolute bottom-1 left-1 right-1 font-barlow p-1 justify-between">
+                <span className="text-white text-2xl font-semibold">
+                  {item.title}
                 </span>
+                <div>
+                  <span className="bg-green-900 text-white font-semibold p-2 rounded-full ">
+                    {item.rating}
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
       <div className="mt-8 text-center font-barlow text-lg">
         <p>
@@ -234,46 +261,60 @@ const Homepage = ({
             {selectedMusicImg && (
               <div className="flex gap-5">
                 <img className="w-1/2" src={selectedMusicImg} />
-                <div className="flex flex-col gap-2">
-                  <div className="text-black text-2xl font-semibold font-barlow">
-                    {selectedMusicTitle}
+                <div className="flex flex-col gap-20 ">
+                  <div>
+                    <p className="text-black text-2xl font-semibold font-barlow">
+                      {selectedMusicTitle}
+                    </p>
+                    <p>Tür: {selectedMusicGenre}</p>
                   </div>
                   <div>
-                    <p>Şarkının konusu eklenince burada yer alacak.</p>
+                    <button
+                      className="w-20 p-2 bg-blue-900 text-white font-barlow rounded-xl hover:bg-blue-500"
+                      onClick={detailMusic}
+                    >
+                      Detay
+                    </button>
                   </div>
-                  <button onClick={detailMusic}>detay</button>
                 </div>
               </div>
             )}
           </Box>
         </Modal>
-        {music.map((item) => (
-          <div className="w-60 relative shadow-2xl" key={item.id}>
-            <img
-              onClick={() =>
-                handleOpenMusic(item.img, item.title, item.rating, item.genre)
-              }
-              className="w-full h-72 rounded-xl hover:-translate-y-0.5 hover:scale-105 transition ease-in-out delay-150 duration-500 cursor-pointer"
-              src={item.img}
-              alt=""
-            />
-            <div
-              onClick={() => handleClick(item.title)}
-              className={`absolute top-1.5 right-1.5 p-1 rounded-full cursor-pointer ${
-                clickedItemIds.includes(item.title)
-                  ? "bg-green-500"
-                  : "bg-white opacity-70 hover:opacity-100"
-              }`}
-            >
-              <img className="w-6" src="/img/star1.svg" alt="" />
+        {music
+          .filter((item) => item.rating >= 8)
+          .map((item) => (
+            <div className="w-60 relative shadow-2xl" key={item.id}>
+              <img
+                onClick={() =>
+                  handleOpenMusic(item.img, item.title, item.rating, item.genre)
+                }
+                className="w-full h-72 rounded-xl hover:-translate-y-0.5 hover:scale-105 transition ease-in-out delay-150 duration-500 cursor-pointer"
+                src={item.img}
+                alt=""
+              />
+              <div
+                onClick={() => handleClick(item.title)}
+                className={`absolute top-1.5 right-1.5 p-1 rounded-full cursor-pointer ${
+                  clickedItemIds.includes(item.title)
+                    ? "bg-green-500"
+                    : "bg-white opacity-70 hover:opacity-100"
+                }`}
+              >
+                <img className="w-6" src="/img/star1.svg" alt="" />
+              </div>
+              <div className="flex items-center absolute bottom-1 left-1 right-1 font-barlow p-1 justify-between">
+                <span className="text-white text-2xl font-semibold">
+                  {item.title}
+                </span>
+                <div>
+                  <span className="bg-green-900 text-white font-semibold p-2 rounded-full ">
+                    {item.rating}
+                  </span>
+                </div>
+              </div>
             </div>
-            <div className="flex items-center absolute bottom-1 left-1 right-1 font-barlow p-1 justify-between">
-              <span className="text-white text-2xl font-semibold">
-                {item.title}
-              </span>
-            </div>
-          </div>
-        ))}
+          ))}
       </div>
       <div className="mt-8 text-center font-barlow text-lg">
         <p>Sevdiğiniz şarkılar, sanatçılar ve daha fazlası için</p>

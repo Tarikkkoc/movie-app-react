@@ -9,6 +9,7 @@ const Series = ({
   openSerie,
   selectedSerieImg,
   selectedSerieTitle,
+  selectedSerieGenre,
   handleOpenSerie,
   handleCloseSerie,
   detailSerie,
@@ -20,6 +21,16 @@ const Series = ({
     { title: "Dram" },
     { title: "Suç" },
     { title: "Romantik" },
+    { title: "Aile" },
+    { title: "Fantastik" },
+    { title: "Animasyon" },
+    { title: "Çocuk" },
+    { title: "Tarih" },
+    { title: "Gerilim" },
+    { title: "Bilim Kurgu" },
+    { title: "Gizem" },
+    { title: "Belgesel" },
+    { title: "Komedi" },
   ];
   const [serie, setSerie] = useState([]);
   const [titleGenre, setTitleGenre] = useState(null);
@@ -80,14 +91,21 @@ const Series = ({
                 {selectedSerieImg && (
                   <div className="flex gap-5">
                     <img className="w-1/2" src={selectedSerieImg} />
-                    <div className="flex flex-col gap-2">
-                      <div className="text-black text-2xl font-semibold font-barlow">
-                        {selectedSerieTitle}
+                    <div className="flex flex-col gap-20 ">
+                      <div>
+                        <p className="text-black text-2xl font-semibold font-barlow">
+                          {selectedSerieTitle}
+                        </p>
+                        <p>Tür: {selectedSerieGenre}</p>
                       </div>
                       <div>
-                        <p>Filmin konusu eklenince burada yer alacak.</p>
+                        <button
+                          className="w-20 p-2 bg-blue-900 text-white font-barlow rounded-xl hover:bg-blue-500"
+                          onClick={detailSerie}
+                        >
+                          Detay
+                        </button>
                       </div>
-                      <button onClick={detailSerie}>detay</button>
                     </div>
                   </div>
                 )}
@@ -145,14 +163,21 @@ const Series = ({
               {selectedSerieImg && (
                 <div className="flex gap-5">
                   <img className="w-1/2" src={selectedSerieImg} />
-                  <div className="flex flex-col gap-2">
-                    <div className="text-black text-2xl font-semibold font-barlow">
-                      {selectedSerieTitle}
+                  <div className="flex flex-col gap-20 ">
+                    <div>
+                      <p className="text-black text-2xl font-semibold font-barlow">
+                        {selectedSerieTitle}
+                      </p>
+                      <p>Tür: {selectedSerieGenre}</p>
                     </div>
                     <div>
-                      <p>Filmin konusu eklenince burada yer alacak.</p>
+                      <button
+                        className="w-20 p-2 bg-blue-900 text-white font-barlow rounded-xl hover:bg-blue-500"
+                        onClick={detailSerie}
+                      >
+                        Detay
+                      </button>
                     </div>
-                    <button onClick={detailSerie}>detay</button>
                   </div>
                 </div>
               )}
