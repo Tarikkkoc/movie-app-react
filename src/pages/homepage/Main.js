@@ -10,11 +10,21 @@ import Account from "../account/Account";
 import Navbar from "../../components/Navbar";
 import Results from "../../components/Results";
 import Detail from "./Detail";
+import AdminPanel from "../auth/admin/AdminPanel";
+import Admin from "../auth/admin/Admin";
+import EditMovies from "../auth/admin/edit/movie/EditMovies";
+import MoviePage from "../auth/admin/edit/movie/MoviePage";
+import EditSerie from "../auth/admin/edit/serie/EditSerie";
+import SeriePage from "../auth/admin/edit/serie/SeriePage";
+import EditMusic from "../auth/admin/edit/music/EditMusic";
+import MusicPage from "../auth/admin/edit/music/MusicPage";
 
 const Main = () => {
   const [results, setResults] = useState([]);
   const navigate = useNavigate();
   const [loginData, setLoginData] = useState([]);
+  const [admin, setAdmin] = useState(null);
+  const [adminLogin, setAdminLogin] = useState([]);
 
   const location = useLocation();
   const [currentUser, setCurrentUser] = useState(null);
@@ -93,8 +103,35 @@ const Main = () => {
         .catch((error) => {
           alert(error);
         });
+    } else if (location.pathname === "/admin") {
+      fetch("http://localhost:5000/admin")
+        .then((res) => res.json())
+        .then((data) => {
+          setAdminLogin(data);
+        })
+        .catch((error) => {
+          alert(error);
+        });
     }
   }, [location]);
+
+  const handleAdmin = (username, password) => {
+    const user = adminLogin.find(
+      (u) => u.username === username && u.password === password
+    );
+    if (user) {
+      setAdmin(user);
+      navigate("/");
+    } else {
+      alert("Hatalı kullanıcı adı veya şifre");
+    }
+  };
+
+  const adminExit = () => {
+    setAdmin(null);
+    navigate("/");
+  };
+
   const handleLogin = (username, password) => {
     const user = loginData.find(
       (u) => u.username === username && u.password === password
@@ -107,6 +144,7 @@ const Main = () => {
       alert("Kullanıcı adı veya şifre hatalı");
     }
   };
+
   const handleExit = () => {
     setCurrentUser(null);
     navigate("/");
@@ -191,6 +229,45 @@ const Main = () => {
     navigate("/detail-page");
   };
 
+  const editMovie = () => {
+    setDetailMovieImg(selectedMovieImg);
+    setDetailMovieTitle(selectedMovieTitle);
+    setDetailMovieRating(selectedMovieRating);
+    setDetailMovieGenre(selectedMovieGenre);
+    setDetailMovieMatter(selectedMovieMatter);
+    setDetailSerieImg(null);
+    setDetailMusicImg(null);
+    setDetailFilterImg(null);
+    setOpenMovie(false);
+    navigate("/edit-movie");
+  };
+
+  const editSerie = () => {
+    setDetailSerieImg(selectedSerieImg);
+    setDetailSerieTitle(selectedSerieTitle);
+    setDetailSerieRating(selectedSerieRating);
+    setDetailSerieGenre(selectedSerieGenre);
+    setDetailSerieMatter(selectedSerieMatter);
+    setDetailMovieImg(null);
+    setDetailMusicImg(null);
+    setDetailFilterImg(null);
+    setOpenSerie(false);
+    navigate("/edit-serie");
+  };
+
+  const editMusic = () => {
+    setDetailMusicImg(selectedMusicImg);
+    setDetailMusicTitle(selectedMusicTitle);
+    setDetailMusicRating(selectedMusicRating);
+    setDetailMusicGenre(selectedMusicGenre);
+    setDetailMusicMatter(selectedMusicMatter);
+    setOpenMusic(false);
+    setDetailMovieImg(null);
+    setDetailSerieImg(null);
+    setDetailFilterImg(null);
+    navigate("/edit-music");
+  };
+
   const [detailSerieImg, setDetailSerieImg] = useState(null);
   const [detailSerieTitle, setDetailSerieTitle] = useState(null);
   const [detailSerieRating, setDetailSerieRating] = useState(null);
@@ -233,6 +310,7 @@ const Main = () => {
       <div className="bg-blue-600 fixed top-0 w-full z-10 rounded-b-xl">
         <Navbar
           currentUser={currentUser}
+          admin={admin}
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
           filteredMovies={filteredMovies}
@@ -360,6 +438,91 @@ const Main = () => {
               detailFilterRating={detailFilterRating}
               detailFilterGenre={detailFilterGenre}
               detailFilterMatter={detailFilterMatter}
+            />
+          }
+        />
+        <Route
+          path="/admin"
+          element={
+            <AdminPanel adminLogin={adminLogin} handleAdmin={handleAdmin} />
+          }
+        />
+        <Route
+          path="/admin-panel"
+          element={<Admin admin={admin} adminExit={adminExit} />}
+        />
+        <Route
+          path="/admin-movie"
+          element={
+            <EditMovies
+              handleOpenMovie={handleOpenMovie}
+              openMovie={openMovie}
+              handleCloseMovie={handleCloseMovie}
+              selectedMovieImg={selectedMovieImg}
+              selectedMovieTitle={selectedMovieTitle}
+              editMovie={editMovie}
+            />
+          }
+        />
+        <Route
+          path="/admin-serie"
+          element={
+            <EditSerie
+              handleOpenSerie={handleOpenSerie}
+              openSerie={openSerie}
+              handleCloseSerie={handleCloseSerie}
+              selectedSerieImg={selectedSerieImg}
+              selectedSerieTitle={selectedSerieTitle}
+              editSerie={editSerie}
+            />
+          }
+        />
+        <Route
+          path="/admin-music"
+          element={
+            <EditMusic
+              handleOpenMusic={handleOpenMusic}
+              openMusic={openMusic}
+              handleCloseMusic={handleCloseMusic}
+              selectedMusicImg={selectedMusicImg}
+              selectedMusicTitle={selectedMusicTitle}
+              editMusic={editMusic}
+            />
+          }
+        />
+        <Route
+          path="/edit-movie"
+          element={
+            <MoviePage
+              detailMovieImg={detailMovieImg}
+              detailMovieTitle={detailMovieTitle}
+              detailMovieRating={detailMovieRating}
+              detailMovieGenre={detailMovieGenre}
+              detailMovieMatter={detailMovieMatter}
+            />
+          }
+        />
+        <Route
+          path="/edit-serie"
+          element={
+            <SeriePage
+              detailSerieImg={detailSerieImg}
+              detailSerieTitle={detailSerieTitle}
+              detailSerieRating={detailSerieRating}
+              detailSerieGenre={detailSerieGenre}
+              detailSerieMatter={detailSerieMatter}
+            />
+          }
+        />
+        <Route
+          path="/edit-music"
+          element={
+            <MusicPage
+              detailMusicImg={detailMusicImg}
+              detailMusicTitle={detailMusicTitle}
+              detailMusicRating={detailMusicRating}
+              detailMusicGenre={detailMusicGenre}
+              detailMusicMatter={detailMusicMatter}
             />
           }
         />

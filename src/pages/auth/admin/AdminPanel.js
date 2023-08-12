@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const Login = ({ loginData, handleLogin }) => {
+const AdminPanel = ({ adminLogin, handleAdmin }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const user = loginData.find(
+    const user = adminLogin.find(
       (u) => u.username === username && u.password === password
     );
     if (user) {
-      handleLogin(username, password);
+      handleAdmin(username, password);
     } else {
       Swal.fire(
         "Kullanıcı adı veya şifre hatalı",
@@ -31,20 +31,16 @@ const Login = ({ loginData, handleLogin }) => {
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             <div>
               <input
-                onChange={(e) => {
-                  setUsername(e.target.value);
-                }}
                 className="p-2 rounded-xl"
+                onChange={(e) => setUsername(e.target.value)}
                 placeholder="Kullanıcı adı"
                 type="text"
               />
             </div>
             <div>
               <input
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
                 className="p-2 rounded-xl"
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="Şifre"
                 type="password"
               />
@@ -53,22 +49,10 @@ const Login = ({ loginData, handleLogin }) => {
               <button className="py-1">Giriş yap</button>
             </div>
           </form>
-          <div className="flex flex-col items-start">
-            <Link to="/admin">
-              <span className="text-sm underline underline-offset-4">
-                Admin girişi
-              </span>
-            </Link>
-            <Link to="/register">
-              <span className="text-sm underline underline-offset-4">
-                Hesabınız yok mu?
-              </span>
-            </Link>
-          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default AdminPanel;
