@@ -18,6 +18,9 @@ import EditSerie from "../auth/admin/edit/serie/EditSerie";
 import SeriePage from "../auth/admin/edit/serie/SeriePage";
 import EditMusic from "../auth/admin/edit/music/EditMusic";
 import MusicPage from "../auth/admin/edit/music/MusicPage";
+import AddMovie from "../auth/admin/edit/movie/AddMovie";
+import AddSerie from "../auth/admin/edit/serie/AddSerie";
+import AddMusic from "../auth/admin/edit/music/AddMusic";
 
 const Main = () => {
   const [results, setResults] = useState([]);
@@ -526,6 +529,9 @@ const Main = () => {
             />
           }
         />
+        <Route path="/add-movie" element={<AddMovie />} />
+        <Route path="/add-serie" element={<AddSerie />} />
+        <Route path="/add-music" element={<AddMusic />} />
       </Routes>
     </div>
   );

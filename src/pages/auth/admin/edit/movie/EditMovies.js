@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
+import { Link } from "react-router-dom";
 
 const EditMovies = ({
   handleOpenMovie,
@@ -37,9 +37,11 @@ const EditMovies = ({
         <h2 className="text-center font-barlow text-5xl font-medium">
           Filmler
         </h2>
-        <div className="text-center cursor-pointer rounded-lg w-20 text-white bg-green-600 hover:bg-green-500 font-barlow text-lg font-medium mobile:py-1 pt-2.5 px-3">
-          Ekle
-        </div>
+        <Link to="/add-movie">
+          <div className="text-center cursor-pointer rounded-lg w-20 text-white bg-green-600 hover:bg-green-500 font-barlow text-lg font-medium mobile:py-1 pt-2.5 px-3">
+            Ekle
+          </div>
+        </Link>
       </div>
       <div className="grid grid-cols-3 gap-x-32 gap-y-10 place-items-center place-content-center mt-10 tablet:grid tablet:grid-cols-2 tablet:gap-y-5 tablet:gap-x-0 mobile:grid mobile:grid-cols-1 mobile:gap-y-5 mobile:gap-x-0">
         <Modal
