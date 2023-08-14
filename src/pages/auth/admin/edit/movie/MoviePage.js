@@ -1,4 +1,6 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MoviePage = ({
   detailMovieImg,
@@ -7,6 +9,41 @@ const MoviePage = ({
   detailMovieGenre,
   detailMovieMatter,
 }) => {
+  const navigate = useNavigate();
+  const handleDelete = () => {
+    Swal.fire({
+      title: "Emin misiniz?",
+      text: "Bu işlem geri alınamaz!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Evet",
+      cancelButtonText: "Hayır",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/movies/${detailMovieTitle}`, {
+          method: "DELETE",
+          headers: { "Content-Type": "application/json" },
+        })
+          .then((res) => {
+            if (res.ok) {
+              Swal.fire(
+                "Silme işlemi başarılı!",
+                "Film başarıyla silindi.",
+                "success"
+              );
+              navigate("/admin-movie");
+            } else {
+              Swal.fire("Hata!", "Film silinemedi.", "error");
+            }
+          })
+          .catch((error) => {
+            Swal.fire("Hata!", "Veri silinirken bir hata oluştu.", "error");
+          });
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire("İptal edildi", "İçerik güvende :)", "info");
+      }
+    });
+  };
   return (
     <div>
       <div className="py-10 container max-w-6xl mx-auto px-4">
@@ -41,10 +78,15 @@ const MoviePage = ({
           </div>
         </div>
         <div className="pt-5 flex gap-3">
-          <div className="w-32 py-3 text-center rounded-xl font-barlow text-xl text-white cursor-pointer bg-blue-800 hover:bg-blue-400">
-            Güncelle
-          </div>
-          <div className="w-28 py-3 text-center rounded-xl font-barlow text-xl text-white cursor-pointer bg-red-800 hover:bg-red-400">
+          <Link to="/update-movie">
+            <div className="w-32 py-3 text-center rounded-xl font-barlow text-xl text-white cursor-pointer bg-blue-800 hover:bg-blue-400">
+              Güncelle
+            </div>
+          </Link>
+          <div
+            onClick={handleDelete}
+            className="w-28 py-3 text-center rounded-xl font-barlow text-xl text-white cursor-pointer bg-red-800 hover:bg-red-400"
+          >
             Sil
           </div>
         </div>

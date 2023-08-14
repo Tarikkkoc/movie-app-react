@@ -21,6 +21,9 @@ import MusicPage from "../auth/admin/edit/music/MusicPage";
 import AddMovie from "../auth/admin/edit/movie/AddMovie";
 import AddSerie from "../auth/admin/edit/serie/AddSerie";
 import AddMusic from "../auth/admin/edit/music/AddMusic";
+import UpdateMovie from "../auth/admin/edit/movie/UpdateMovie";
+import UpdateSerie from "../auth/admin/edit/serie/UpdateSerie";
+import UpdateMusic from "../auth/admin/edit/music/UpdateMusic";
 
 const Main = () => {
   const [results, setResults] = useState([]);
@@ -532,6 +535,42 @@ const Main = () => {
         <Route path="/add-movie" element={<AddMovie />} />
         <Route path="/add-serie" element={<AddSerie />} />
         <Route path="/add-music" element={<AddMusic />} />
+        <Route
+          path="/update-movie"
+          element={
+            <UpdateMovie
+              detailMovieImg={detailMovieImg}
+              detailMovieTitle={detailMovieTitle}
+              detailMovieRating={detailMovieRating}
+              detailMovieGenre={detailMovieGenre}
+              detailMovieMatter={detailMovieMatter}
+            />
+          }
+        />
+        <Route
+          path="/update-serie"
+          element={
+            <UpdateSerie
+              detailSerieImg={detailSerieImg}
+              detailSerieTitle={detailSerieTitle}
+              detailSerieRating={detailSerieRating}
+              detailSerieGenre={detailSerieGenre}
+              detailSerieMatter={detailSerieMatter}
+            />
+          }
+        />
+        <Route
+          path="/update-music"
+          element={
+            <UpdateMusic
+              detailMusicImg={detailMusicImg}
+              detailMusicTitle={detailMusicTitle}
+              detailMusicRating={detailMusicRating}
+              detailMusicGenre={detailMusicGenre}
+              detailMusicMatter={detailMusicMatter}
+            />
+          }
+        />
       </Routes>
     </div>
   );
