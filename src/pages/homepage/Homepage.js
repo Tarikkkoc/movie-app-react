@@ -5,6 +5,9 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Typography from "@mui/material/Typography";
 import { css, styled } from "@emotion/css";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Homepage = ({
   currentUser,
@@ -43,6 +46,40 @@ const Homepage = ({
     }
   };
 
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   const style = {
     position: "absolute",
     top: "50%",
@@ -78,11 +115,9 @@ const Homepage = ({
   }, []);
 
   return (
-    <div className="container max-w-6xl mx-auto px-4">
-      <h2 className="text-center font-barlow text-5xl font-medium pt-5">
-        Filmler
-      </h2>
-      <div className="grid grid-cols-3 gap-x-32 gap-y-10 place-items-center place-content-center mt-10 tablet:grid tablet:grid-cols-2 tablet:gap-y-5 tablet:gap-x-0 mobile:grid mobile:grid-cols-1 mobile:gap-y-5 mobile:gap-x-0">
+    <div className="container max-w-6xl mx-auto px-10 text-white pt-10">
+      <h2 className="font-barlow text-5xl font-medium pt-5">Filmler</h2>
+      <div>
         <Modal
           keepMounted
           open={openMovie}
@@ -114,61 +149,53 @@ const Homepage = ({
             )}
           </Box>
         </Modal>
-        {movie
-          .filter((item) => item.rating >= 7.5)
-          .map((item) => (
-            <div className="w-60 relative shadow-2xl" key={item.id}>
-              <img
-                onClick={() =>
-                  handleOpenMovie(
-                    item.img,
-                    item.title,
-                    item.rating,
-                    item.genre,
-                    item.matter
-                  )
-                }
-                className="w-full h-72 rounded-xl hover:-translate-y-0.5 hover:scale-105 transition ease-in-out delay-150 duration-500 cursor-pointer"
-                src={item.img}
-                alt=""
-              />
-              <div
-                onClick={() => handleClick(item.title)}
-                className={`absolute rounded-full cursor-pointer top-1.5 right-1.5 p-1 ${
-                  clickedItemIds.includes(item.title)
-                    ? "bg-green-500"
-                    : "bg-white opacity-70 hover:opacity-100"
-                }`}
-              >
-                <img className="w-6" src="/img/star1.svg" alt="" />
-              </div>
-              <div className="flex items-center absolute bottom-1 left-1 right-1 font-barlow p-1 justify-between">
-                <span className="text-white text-2xl font-semibold">
-                  {item.title}
-                </span>
-                <div>
-                  <span className="bg-green-900 text-white font-semibold p-2 rounded-full ">
-                    {item.rating}
+        <Slider {...settings} className="w-full flex mt-3">
+          {movie
+            .filter((item) => item.rating >= 7.5)
+            .map((item) => (
+              <div className="relative shadow-2xl" key={item.id}>
+                <img
+                  onClick={() =>
+                    handleOpenMovie(
+                      item.img,
+                      item.title,
+                      item.rating,
+                      item.genre,
+                      item.matter
+                    )
+                  }
+                  className="w-full h-72 mobile:h-44 tablet:h-44 rounded-xl hover:-translate-y-0.5 hover:scale-105 transition ease-in-out delay-150 duration-500 cursor-pointer"
+                  src={item.img}
+                  alt=""
+                />
+                <div className="flex items-center absolute bottom-1 left-1 right-1 font-barlow p-1 justify-between">
+                  <span className="text-white text-2xl font-semibold">
+                    {item.title}
                   </span>
+                  <div>
+                    <span className="bg-green-900 text-white font-semibold p-2 rounded-full ">
+                      {item.rating}
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+        </Slider>
+        <div className="mt-8  font-barlow text-lg">
+          <p className="mobile:hidden tablet:hidden">
+            İzlediğiniz filmin konusu, oyuncuları, IMDB puanı ve daha fazlası
+            için
+          </p>
+          <p className="hidden tablet:flex mobile:flex">Daha fazlası için</p>
+          <Link to="/movies">
+            <span className="underline underline-offset-2 text-xl font-medium">
+              Filmler...
+            </span>
+          </Link>
+        </div>
       </div>
-      <div className="mt-8 text-center font-barlow text-lg">
-        <p>
-          İzlediğiniz filmin konusu, oyuncuları, IMDB puanı ve daha fazlası için
-        </p>
-        <Link to="/movies">
-          <span className="underline underline-offset-2 text-xl font-medium">
-            Movies...
-          </span>
-        </Link>
-      </div>
-      <h2 className="text-center font-barlow text-5xl font-medium mt-5">
-        Diziler
-      </h2>
-      <div className="grid grid-cols-3 gap-x-32 gap-y-10 place-items-center place-content-between mt-10 tablet:grid tablet:grid-cols-2 tablet:gap-y-5 tablet:gap-x-0 mobile:grid mobile:grid-cols-1 mobile:gap-y-5 mobile:gap-x-0">
+      <h2 className="font-barlow text-5xl font-medium pt-5">Diziler</h2>
+      <div>
         <Modal
           keepMounted
           open={openSerie}
@@ -200,62 +227,52 @@ const Homepage = ({
             )}
           </Box>
         </Modal>
-        {serie
-          .filter((item) => item.rating >= 8)
-          .map((item) => (
-            <div className="w-60 relative shadow-2xl" key={item.id}>
-              <img
-                onClick={() =>
-                  handleOpenSerie(
-                    item.img,
-                    item.title,
-                    item.rating,
-                    item.genre,
-                    item.matter
-                  )
-                }
-                className="w-full h-72 rounded-xl hover:-translate-y-0.5 hover:scale-105 transition ease-in-out delay-150 duration-500 cursor-pointer"
-                src={item.img}
-                alt=""
-              />
-              <div
-                onClick={() => handleClick(item.title)}
-                className={`absolute top-1.5 right-1.5 p-1 rounded-full cursor-pointer ${
-                  clickedItemIds.includes(item.title)
-                    ? "bg-green-500"
-                    : " bg-white opacity-70 hover:opacity-100"
-                }`}
-              >
-                <img className="w-6" src="/img/star1.svg" alt="" />
-              </div>
-              <div className="flex items-center absolute bottom-1 left-1 right-1 font-barlow p-1 justify-between">
-                <span className="text-white text-2xl font-semibold">
-                  {item.title}
-                </span>
-                <div>
-                  <span className="bg-green-900 text-white font-semibold p-2 rounded-full ">
-                    {item.rating}
+        <Slider {...settings} className="w-full flex mt-3">
+          {serie
+            .filter((item) => item.rating >= 7.5)
+            .map((item) => (
+              <div className="relative shadow-2xl" key={item.id}>
+                <img
+                  onClick={() =>
+                    handleOpenSerie(
+                      item.img,
+                      item.title,
+                      item.rating,
+                      item.genre,
+                      item.matter
+                    )
+                  }
+                  className="w-full h-72 mobile:h-44 tablet:h-44 rounded-xl hover:-translate-y-0.5 hover:scale-105 transition ease-in-out delay-150 duration-500 cursor-pointer"
+                  src={item.img}
+                  alt=""
+                />
+                <div className="flex items-center absolute bottom-1 left-1 right-1 font-barlow p-1 justify-between">
+                  <span className="text-white text-2xl font-semibold">
+                    {item.title}
                   </span>
+                  <div>
+                    <span className="bg-green-900 text-white font-semibold p-2 rounded-full ">
+                      {item.rating}
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+        </Slider>
+        <div className="mt-8  font-barlow text-lg">
+          <p className="mobile:hidden tablet:hidden">
+            Popüler diziler, izlemek istediğiniz türler ve daha fazlası için
+          </p>
+          <p className="hidden tablet:flex mobile:flex">Daha fazlası için</p>
+          <Link to="/series">
+            <span className="underline underline-offset-2 text-xl font-medium">
+              Diziler...
+            </span>
+          </Link>
+        </div>
       </div>
-      <div className="mt-8 text-center font-barlow text-lg">
-        <p>
-          Sevidiğiniz dizilerin konusu, oyuncuları, IMDB puanı ve daha fazlası
-          için
-        </p>
-        <Link to="/series">
-          <span className="underline underline-offset-2 text-xl font-medium">
-            Series...
-          </span>
-        </Link>
-      </div>
-      <h2 className="text-center font-barlow text-5xl font-medium mt-5">
-        Sanatçılar
-      </h2>
-      <div className="grid grid-cols-3 gap-x-32 gap-y-10 place-items-center place-content-between mt-10 tablet:grid tablet:grid-cols-2 tablet:gap-y-5 tablet:gap-x-0 mobile:grid mobile:grid-cols-1 mobile:gap-y-5 mobile:gap-x-0">
+      <div>
+        <h2 className="font-barlow text-5xl font-medium pt-5">Sanatçılar</h2>
         <Modal
           keepMounted
           open={openMusic}
@@ -287,54 +304,49 @@ const Homepage = ({
             )}
           </Box>
         </Modal>
-        {music
-          .filter((item) => item.rating >= 8)
-          .map((item) => (
-            <div className="w-60 relative shadow-2xl" key={item.id}>
-              <img
-                onClick={() =>
-                  handleOpenMusic(
-                    item.img,
-                    item.title,
-                    item.rating,
-                    item.genre,
-                    item.matter
-                  )
-                }
-                className="w-full h-72 rounded-xl hover:-translate-y-0.5 hover:scale-105 transition ease-in-out delay-150 duration-500 cursor-pointer"
-                src={item.img}
-                alt=""
-              />
-              <div
-                onClick={() => handleClick(item.title)}
-                className={`absolute top-1.5 right-1.5 p-1 rounded-full cursor-pointer ${
-                  clickedItemIds.includes(item.title)
-                    ? "bg-green-500"
-                    : "bg-white opacity-70 hover:opacity-100"
-                }`}
-              >
-                <img className="w-6" src="/img/star1.svg" alt="" />
-              </div>
-              <div className="flex items-center absolute bottom-1 left-1 right-1 font-barlow p-1 justify-between">
-                <span className="text-white text-2xl font-semibold">
-                  {item.title}
-                </span>
-                <div>
-                  <span className="bg-green-900 text-white font-semibold p-2 rounded-full ">
-                    {item.rating}
+        <Slider {...settings} className="w-full flex mt-3">
+          {music
+            .filter((item) => item.rating >= 7.5)
+            .map((item) => (
+              <div className="relative shadow-2xl" key={item.id}>
+                <img
+                  onClick={() =>
+                    handleOpenMusic(
+                      item.img,
+                      item.title,
+                      item.rating,
+                      item.genre,
+                      item.matter
+                    )
+                  }
+                  className="w-full h-72 mobile:h-44 tablet:h-44 rounded-xl hover:-translate-y-0.5 hover:scale-105 transition ease-in-out delay-150 duration-500 cursor-pointer"
+                  src={item.img}
+                  alt=""
+                />
+                <div className="flex items-center absolute bottom-1 left-1 right-1 font-barlow p-1 justify-between">
+                  <span className="text-white text-2xl font-semibold">
+                    {item.title}
                   </span>
+                  <div>
+                    <span className="bg-green-900 text-white font-semibold p-2 rounded-full ">
+                      {item.rating}
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-      </div>
-      <div className="mt-8 text-center font-barlow text-lg">
-        <p>Sevdiğiniz şarkılar, sanatçılar ve daha fazlası için</p>
-        <Link to="/musics">
-          <span className="underline underline-offset-2 text-xl font-medium">
-            Musics...
-          </span>
-        </Link>
+            ))}
+        </Slider>
+        <div className="mt-8  font-barlow text-lg">
+          <p className="mobile:hidden tablet:hidden">
+            Sevdiğiniz sanatçılar ve daha fazlası için
+          </p>
+          <p className="hidden tablet:flex mobile:flex">Daha fazlası için</p>
+          <Link to="/musics">
+            <span className="underline underline-offset-2 text-xl font-medium">
+              Sanatçılar...
+            </span>
+          </Link>
+        </div>
       </div>
     </div>
   );

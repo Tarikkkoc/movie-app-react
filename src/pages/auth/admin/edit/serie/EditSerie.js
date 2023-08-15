@@ -35,7 +35,7 @@ const EditSerie = ({
   }, []);
 
   return (
-    <div className="container max-w-6xl mx-auto px-4">
+    <div className="container max-w-6xl mx-auto px-4 text-white">
       <div className="flex justify-between pt-5 px-5 mobile:flex mobile:flex-col mobile:items-center mobile:gap-5">
         <h2 className="text-center font-barlow text-5xl font-medium">
           Diziler

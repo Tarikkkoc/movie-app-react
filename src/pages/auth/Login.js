@@ -22,7 +22,7 @@ const Login = ({ loginData, handleLogin }) => {
     }
   };
   return (
-    <div className="container max-w-6xl mx-auto px-4 pt-8 h-screen grid place-items-center">
+    <div className="container max-w-6xl mx-auto px-4 pt-8 h-screen grid place-items-center text-white">
       <div className="grid place-items-center">
         <div className="flex flex-col gap-5 items-center w-full">
           <div className="">

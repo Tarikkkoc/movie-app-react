@@ -25,7 +25,7 @@ const Navbar = ({
     navigate("/search-results");
   };
   return (
-    <div>
+    <div className="bg-darkHorizon">
       <div className="container max-w-6xl mx-auto px-4 flex justify-between items-center ">
         <div>
           <Link to="/">

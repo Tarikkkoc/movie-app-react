@@ -312,7 +312,7 @@ const Main = () => {
     navigate("/detail-page");
   };
   return (
-    <div className="bg-blue-300 mt-14 z-0 pb-5">
+    <div className="bg-darkHorizon mt-14 z-0 pb-5">
       <div className="bg-blue-600 fixed top-0 w-full z-10 rounded-b-xl">
         <Navbar
           currentUser={currentUser}

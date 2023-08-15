@@ -58,7 +58,7 @@ const Musics = ({
     setTitleGenre(genre);
   };
   return (
-    <div className="container max-w-6xl mx-auto px-4 py-5">
+    <div className="container max-w-6xl mx-auto px-4 py-5 text-white">
       {!musicGenre && (
         <div>
           <Heros filterGenre={filterGenre} heros={musicHeros} />

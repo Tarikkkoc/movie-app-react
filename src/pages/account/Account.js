@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Account = ({ currentUser, handleExit }) => {
   return (
-    <div className="h-screen container max-w-6xl mx-auto px-4">
+    <div className="h-screen container max-w-6xl mx-auto px-4 text-white">
       {currentUser && (
         <div className="pt-10">
           <div className="flex flex-col gap-3">

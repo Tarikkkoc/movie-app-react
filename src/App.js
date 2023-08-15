@@ -9,9 +9,9 @@ import Main from "./pages/homepage/Main";
 
 function App() {
   return (
-    <div className="">
+    <div className="bg-darkHorizon">
       <Main />
-      <div className="bg-blue-900 bottom-0 w-full rounded-t-xl">
+      <div className="bottom-0 w-full rounded-t-xl">
         <Footer />
       </div>
       <div className="fixed bottom-10 right-5">

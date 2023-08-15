@@ -10,9 +10,13 @@ module.exports = {
       desktop: { max: "1231px", min: "920px" },
       // => @media (max-width: 1231px) { ... }
     },
-    extend: {},
-    fontFamily: {
-      barlow: ["Barlow", "sans-serif"],
+    extend: {
+      colors: {
+        darkHorizon: "#060d17",
+      },
+      fontFamily: {
+        barlow: ["Barlow", "sans-serif"],
+      },
     },
   },
   plugins: [],

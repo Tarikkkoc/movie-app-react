@@ -72,12 +72,12 @@ const Series = ({
     p: 4,
   };
   return (
-    <div className="container max-w-6xl mx-auto px-4 py-5">
+    <div className="container max-w-6xl mx-auto px-4 py-5 text-white">
       {!serieGenre && (
         <div>
           <Heros heros={serieHeros} filterGenre={filterGenre} />
           <h2 className="text-center font-barlow text-5xl font-medium pt-5">
-            {titleGenre}
+            Diziler
           </h2>
           <div className="grid grid-cols-3 gap-x-32 gap-y-10 place-items-center place-content-center mt-10 tablet:grid tablet:grid-cols-2 tablet:gap-y-5 tablet:gap-x-0 mobile:grid mobile:grid-cols-1 mobile:gap-y-5 mobile:gap-x-0">
             <Modal

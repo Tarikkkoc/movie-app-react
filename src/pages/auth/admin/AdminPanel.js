@@ -22,7 +22,7 @@ const AdminPanel = ({ adminLogin, handleAdmin }) => {
     }
   };
   return (
-    <div className="container max-w-6xl mx-auto px-4 pt-8 h-screen grid place-items-center">
+    <div className="container max-w-6xl mx-auto px-4 pt-8 h-screen grid place-items-center text-white">
       <div className="grid place-items-center">
         <div className="flex flex-col gap-5 items-center w-full">
           <div className="">
@@ -31,7 +31,7 @@ const AdminPanel = ({ adminLogin, handleAdmin }) => {
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             <div>
               <input
-                className="p-2 rounded-xl"
+                className="p-2 rounded-xl text-black"
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="Kullanıcı adı"
                 type="text"
@@ -39,7 +39,7 @@ const AdminPanel = ({ adminLogin, handleAdmin }) => {
             </div>
             <div>
               <input
-                className="p-2 rounded-xl"
+                className="p-2 rounded-xl text-black"
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Şifre"
                 type="password"

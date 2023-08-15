@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Admin = ({ admin, adminExit }) => {
   return (
-    <div className="h-screen container max-w-6xl mx-auto px-4">
+    <div className="h-screen container max-w-6xl mx-auto px-4 text-white">
       {admin && (
         <div>
           <div className="pt-16">

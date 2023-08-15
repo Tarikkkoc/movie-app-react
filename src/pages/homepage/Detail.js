@@ -22,7 +22,7 @@ const Detail = ({
   detailFilterMatter,
 }) => {
   return (
-    <div className="">
+    <div className="text-white">
       {detailMovieImg && (
         <div className="py-10 container max-w-6xl mx-auto px-4">
           <div className="flex flex-col gap-5 mobile:flex mobile:flex-col mobile:items-center tablet:flex tablet:flex-col tablet:items-center">
