@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import "./App.css";
 import Arrow from "./components/Arrow";
 import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
-import Homepage from "./pages/homepage/Homepage";
 import Main from "./pages/homepage/Main";
+import { useLocation } from "react-router-dom";
 
 function App() {
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, [location.pathname]);
   return (
     <div className="bg-darkHorizon">
       <Main />

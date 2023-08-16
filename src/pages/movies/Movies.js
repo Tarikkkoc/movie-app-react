@@ -149,7 +149,7 @@ const Movies = ({
                   )}
                 </Box>
               </Modal>
-              <Slider {...settings} className="w-full flex mt-3">
+              <Slider {...settings} className="w-full mt-3">
                 {movie
                   .filter((item) => item.rating >= 7.5)
                   .map((item) => (
@@ -217,7 +217,7 @@ const Movies = ({
                   )}
                 </Box>
               </Modal>
-              <Slider {...settings} className="w-full flex mt-3">
+              <Slider {...settings} className="w-full mt-3">
                 {movie
                   .filter((item) => item.genre === "Aksiyon")
                   .map((item) => (
@@ -285,7 +285,7 @@ const Movies = ({
                   )}
                 </Box>
               </Modal>
-              <Slider {...settings} className="w-full flex mt-3">
+              <Slider {...settings} className="w-full mt-3">
                 {movie
                   .filter((item) => item.genre === "Korku")
                   .map((item) => (
@@ -353,7 +353,7 @@ const Movies = ({
                   )}
                 </Box>
               </Modal>
-              <Slider {...settings} className="w-full flex mt-3">
+              <Slider {...settings} className="w-full mt-3">
                 {movie
                   .filter((item) => item.genre === "Dram")
                   .map((item) => (
@@ -421,7 +421,7 @@ const Movies = ({
                   )}
                 </Box>
               </Modal>
-              <Slider {...settings} className="w-full flex mt-3">
+              <Slider {...settings} className="w-full mt-3">
                 {movie
                   .filter((item) => item.genre === "Gerilim")
                   .map((item) => (
@@ -489,7 +489,7 @@ const Movies = ({
                   )}
                 </Box>
               </Modal>
-              <Slider {...settings} className="w-full flex mt-3">
+              <Slider {...settings} className="w-full mt-3">
                 {movie
                   .filter((item) => item.genre === "Komedi")
                   .map((item) => (

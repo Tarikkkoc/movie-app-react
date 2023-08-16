@@ -48,7 +48,7 @@ const MusicPage = ({
   return (
     <div>
       <div className="py-10 container max-w-6xl mx-auto px-4">
-        <div className="flex flex-col gap-5 mobile:flex mobile:flex-col mobile:items-center tablet:flex tablet:flex-col tablet:items-center">
+        <div className="flex text-white flex-col gap-5 mobile:flex mobile:flex-col mobile:items-center tablet:flex tablet:flex-col tablet:items-center">
           <div className="flex justify-between mobile:flex mobile:flex-col mobile:items-center tablet:flex tablet:flex-col tablet:items-center mobile:gap-5 tablet:gap-5">
             <h3 className="font-barlow font-bold text-3xl">
               {detailMusicTitle}

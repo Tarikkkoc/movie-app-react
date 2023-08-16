@@ -111,7 +111,6 @@ const Homepage = ({
         setMusic(musics);
       })
       .catch((error) => console.log(error));
-    // alertify.set("notifier", "position", "bottom-right");
   }, []);
 
   return (
@@ -149,7 +148,7 @@ const Homepage = ({
             )}
           </Box>
         </Modal>
-        <Slider {...settings} className="w-full flex mt-3">
+        <Slider {...settings} className="mt-3 space-x-8">
           {movie
             .filter((item) => item.rating >= 7.5)
             .map((item) => (
@@ -227,7 +226,7 @@ const Homepage = ({
             )}
           </Box>
         </Modal>
-        <Slider {...settings} className="w-full flex mt-3">
+        <Slider {...settings} className="w-full mt-3">
           {serie
             .filter((item) => item.rating >= 7.5)
             .map((item) => (
@@ -304,7 +303,7 @@ const Homepage = ({
             )}
           </Box>
         </Modal>
-        <Slider {...settings} className="w-full flex mt-3">
+        <Slider {...settings} className="w-full mt-3">
           {music
             .filter((item) => item.rating >= 7.5)
             .map((item) => (

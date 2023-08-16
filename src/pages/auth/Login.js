@@ -34,7 +34,7 @@ const Login = ({ loginData, handleLogin }) => {
                 onChange={(e) => {
                   setUsername(e.target.value);
                 }}
-                className="p-2 rounded-xl"
+                className="p-2 rounded-xl text-black"
                 placeholder="Kullanıcı adı"
                 type="text"
               />
@@ -44,7 +44,7 @@ const Login = ({ loginData, handleLogin }) => {
                 onChange={(e) => {
                   setPassword(e.target.value);
                 }}
-                className="p-2 rounded-xl"
+                className="p-2 rounded-xl text-black"
                 placeholder="Şifre"
                 type="password"
               />

@@ -52,7 +52,7 @@ const Register = () => {
               <input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="p-2 rounded-xl"
+                className="p-2 rounded-xl text-black"
                 placeholder="Adınız"
                 type="text"
               />
@@ -61,7 +61,7 @@ const Register = () => {
               <input
                 value={surname}
                 onChange={(e) => setSurname(e.target.value)}
-                className="p-2 rounded-xl"
+                className="p-2 rounded-xl text-black"
                 placeholder="Soy adınız"
                 type="text"
               />
@@ -70,7 +70,7 @@ const Register = () => {
               <input
                 value={mail}
                 onChange={(e) => setMail(e.target.value)}
-                className="p-2 rounded-xl"
+                className="p-2 rounded-xl text-black"
                 placeholder="E-mail"
                 type="text"
               />
@@ -79,7 +79,7 @@ const Register = () => {
               <input
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="p-2 rounded-xl"
+                className="p-2 rounded-xl text-black"
                 placeholder="Kullanıcı adı"
                 type="text"
               />
@@ -88,7 +88,7 @@ const Register = () => {
               <input
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="p-2 rounded-xl"
+                className="p-2 rounded-xl text-black"
                 placeholder="Şifre"
                 type="password"
               />
