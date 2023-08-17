@@ -27,7 +27,7 @@ The application is compatible with browsers, tablets, and mobile devices.
 <div>
   <storng>npm install</storng> (with npm)
   <storng>yarn</storng> (or with yarn)
-</div>
+</div> </br>
 <p>
 <a href="https://github.com/Tarikkkoc/movie-app-backend-nodeJs">
 3. Fork the backend by reading the README file.
@@ -38,11 +38,11 @@ The application is compatible with browsers, tablets, and mobile devices.
 </p>
 <div>
 npm start [OR] yarn start
-</div>
+</div> </br>
 <p>
 5. Now run the app
 </p>
-<div style="border: 1px solid black; border-radius: 10px; background-color:"white">
+<div>
 localhost:[PORT]
 </div>
 
