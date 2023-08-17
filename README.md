@@ -47,7 +47,7 @@ localhost:[PORT]
 </div>
 
 
-
+<img src="/img/logo2.svg"/>
 
 
 
