@@ -48,6 +48,11 @@ localhost:[PORT]
 
 <h3>Homepage</h3>
 <img src="./public/img/github/homepage.jpg"/>
+<h3>Responsive</h3>
+<img src="./public/img/github/responsive-design.jpg"/>
+</br>
+<img src="./public/img/github/responsive2.jpg"/> </br>
+<img src="./public/img/github/responsive3.jpg"/>
 
 
 
