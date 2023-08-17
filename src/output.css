@@ -704,6 +704,14 @@ video {
   margin-top: 3.5rem;
 }
 
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
+.mt-1-5 {
+  margin-top: 0.35rem;
+}
+
 .mt-2 {
   margin-top: 0.5rem;
 }
@@ -730,6 +738,14 @@ video {
 
 .hidden {
   display: none;
+}
+
+.h-6 {
+  height: 1.5rem;
+}
+
+.h-8 {
+  height: 2rem;
 }
 
 .h-10 {
@@ -980,6 +996,11 @@ video {
 .bg-darkHorizon {
   --tw-bg-opacity: 1;
   background-color: rgb(6 13 23 / var(--tw-bg-opacity));
+}
+
+.bg-gray-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(209 213 219);
 }
 
 .bg-gray-900 {

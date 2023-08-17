@@ -49,7 +49,7 @@ const Login = ({ loginData, handleLogin }) => {
                 type="password"
               />
             </div>
-            <div className="w-full bg-slate-500 text-center rounded-xl">
+            <div className="w-full bg-slate-500 hover:bg-slate-200 text-center rounded-xl">
               <button className="py-1">Giriş yap</button>
             </div>
           </form>

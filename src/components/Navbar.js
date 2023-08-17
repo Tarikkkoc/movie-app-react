@@ -29,7 +29,7 @@ const Navbar = ({
       <div className="container max-w-6xl mx-auto px-4 flex justify-between items-center ">
         <div>
           <Link to="/">
-            <img className="h-14 shrink-1 my-2" src="/img/logo.svg" alt="" />
+            <img className="h-14 shrink-1 my-2" src="/img/logo2.svg" alt="" />
           </Link>
         </div>
         <div className="flex gap-8 tablet:hidden mobile:hidden">
@@ -72,17 +72,12 @@ const Navbar = ({
                       Login
                     </li>
                   </Link>
-                  <Link to="/register">
-                    <li className="cursor-pointer p-2 rounded-xl hover:bg-blue-200 hover:text-black">
-                      Kayıt ol
-                    </li>
-                  </Link>
                 </div>
               ))
             }
           </ul>
           <img
-            className="h-5 shrink-1 mt-2 cursor-pointer"
+            className="h-8 bg-gray-300 rounded-xl shrink-1 mt-1-5 cursor-pointer"
             onClick={handleSearch}
             src="/img/search.svg"
             alt=""
@@ -90,7 +85,7 @@ const Navbar = ({
         </div>
         <div className="hidden tablet:flex tablet:gap-4 mobile:flex mobile:gap-4">
           <img
-            className="h-5 shrink-1 mt-2 cursor-pointer"
+            className="h-8 shrink-1 mt-1-5 cursor-pointer"
             onClick={handleSearch}
             src="/img/search.svg"
             alt=""
@@ -162,13 +157,6 @@ const Navbar = ({
                       <div className="grid place-items-center">
                         <button className="bg-blue-600 hover:bg-blue-400 rounded-full px-6 py-3 text-white">
                           Giriş Yap
-                        </button>
-                      </div>
-                    </Link>
-                    <Link onClick={handleClick} to="/register">
-                      <div className="grid place-items-center">
-                        <button className="bg-blue-600 hover:bg-blue-400 rounded-full px-6 py-3 text-white">
-                          Kayıt ol
                         </button>
                       </div>
                     </Link>
