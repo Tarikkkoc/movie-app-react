@@ -46,8 +46,8 @@ npm start [OR] yarn start
 localhost:[PORT]
 </div>
 
-
-<img src="/img/logo2.svg"/>
+<h3>Homepage</h3>
+<img src="../public/img/github/homepage.jpg"/>
 
 
 
