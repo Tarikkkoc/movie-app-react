@@ -47,7 +47,7 @@ localhost:[PORT]
 </div>
 
 <h3>Homepage</h3>
-<img src="../public/img/github/homepage.jpg"/>
+<img src="./public/img/github/homepage.jpg"/>
 
 
 
