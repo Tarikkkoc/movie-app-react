@@ -25,7 +25,7 @@ The application is compatible with browsers, tablets, and mobile devices.
 <p>1. Fork the repo and then clone it or download it.</p>
 <p>2.First install all dependencies:</p>
 <div>
-  <storng>npm install</storng> (with npm)
+  <storng>npm install</storng> (with npm) </br>
   <storng>yarn</storng> (or with yarn)
 </div> </br>
 <p>
