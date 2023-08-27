@@ -52,7 +52,15 @@ localhost:[PORT]
 <img src="./public/img/github/responsive-design.jpg"/>
 </br>
 <img src="./public/img/github/responsive2.jpg"/> </br>
-<img src="./public/img/github/responsive3.jpg"/>
+<img src="./public/img/github/responsive3.jpg"/> </br>
+<img src="./public/img/github/admin-panel.jpg"/> </br>
+<img src="./public/img/github/edit-page.jpg"/> </br>
+<img src="./public/img/github/detail-page.jpg"/> </br>
+<img src="./public/img/github/login.jpg"/> </br>
+<img src="./public/img/github/update.jpg"/> </br>
+<img src="./public/img/github/login.jpg"/> </br>
+<img src="./public/img/github/register.jpg"/> </br>
+<img src="./public/img/github/register2.jpg"/> </br>
 
 
 
