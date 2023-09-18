@@ -46,9 +46,22 @@ npm start [OR] yarn start
 localhost:[PORT]
 </div>
 
-<h3>Homepage</h3>
-<img src="./public/img/github/homepage.jpg"/>
-<h3>Responsive</h3>
+<img src="./public/img/github/img1.jpg"/>
+<img src="./public/img/github/img2.jpg"/>
+<img src="./public/img/github/img3.jpg"/>
+<img src="./public/img/github/dark.jpg"/>
+<img src="./public/img/github/light.jpg"/>
+<img src="./public/img/github/light2.jpg"/>
+<img src="./public/img/github/login.jpg"/>
+<img src="./public/img/github/login2.jpg"/>
+<img src="./public/img/github/login2.jpg"/>
+<img src="./public/img/github/register1.jpg"/>
+<img src="./public/img/github/responsive.jpg"/>
+<img src="./public/img/github/responsive2.jpg"/>
+<img src="./public/img/github/responsive3.jpg"/>
+<img src="./public/img/github/responsivelight.jpg"/>
+
+
 <img src="./public/img/github/responsive-design.jpg"/>
 </br>
 <img src="./public/img/github/responsive2.jpg"/> </br>
